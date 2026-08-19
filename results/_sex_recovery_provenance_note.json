@@ -1,0 +1,13 @@
+{
+  "note_2026_07_10": "analysis_master.csv가 성별 복구(2026-07-10)로 변경됨. 그러나 phase5_1_correlations / phase5_4_gcl_rnfl_compare / sita_sensitivity 는 성별·covariate_set을 사용하지 않으므로 수치 불변. 이들의 input_sha256는 복구 이전 master 기준(정직한 기록). 재실행 시 generated/hash만 바뀌고 숫자는 동일. phase5_3만 성별 사용→재실행 완료.",
+  "affected_by_sex": [
+    "phase5_3_covariate"
+  ],
+  "unaffected": [
+    "phase5_1_correlations",
+    "phase5_2_*",
+    "phase5_4_gcl_rnfl_compare",
+    "sita_sensitivity",
+    "phase3_extraction_accuracy"
+  ]
+}

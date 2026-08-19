@@ -1,0 +1,22 @@
+{
+  "generated": "2026-07-05",
+  "output": "data/oct_canonical.csv",
+  "sha256": "2bb68402cc6649c25320d9ca5b4130ae597f7d56957b02df3f2ad169b440da5e",
+  "n_eyes": 276,
+  "n_patients": 144,
+  "sources": {
+    "GCL": "oct_tabular_90d.csv (수동검수본, OS T-N swap 수정, inferior 복원)",
+    "RNFL": "oct_tabular_90d.csv primary + rnfl_detail.csv fallback (4눈)",
+    "signal_strength": "data/signal_strength.csv"
+  },
+  "excluded": [
+    "od_avg_rnfl, os_avg_rnfl, od_vert_cd, os_vert_cd (DL논문용 보존)"
+  ],
+  "restored": [
+    "rnfl_q_i (수동검수본에 정상값 확인, 이전 구 파이프라인 100% None 오류 수정)",
+    "od_s_inf, os_s_inf inferior 섹터 (3-stage OCR 33-36% None → 수동검수 3% None)",
+    "OS 섹터 temporal↔nasal swap 수정 (ocr_oct_values.py 레이블 오류 수정)"
+  ],
+  "BVAL_treatment": "GCL 섹터·RNFL >=200 -> None (안전장치, avg/min은 수동검수 완료)",
+  "accuracy_ref": "results/oct_extraction_accuracy.json (Phase 3 정확도 봉인)"
+}

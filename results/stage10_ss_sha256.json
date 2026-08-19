@@ -1,0 +1,19 @@
+{
+  "key": "stage10_ss_sha256",
+  "value": "4157f4ca5b5d4180f0a6a120a8ef72f59c82af7b26dbdb45e00ceb103cdb61d2",
+  "script": "scripts/stage_10_extract.py",
+  "inputs": [
+    {
+      "id": "kcc/dataset_final.csv",
+      "sha256": "c98a3df284c052e048a94e5350183840877865dabf032213aa280020b79ee6e0",
+      "bytes": 129813
+    }
+  ],
+  "created_utc": "2026-07-23T04:43:10+00:00",
+  "git_commit": "2ff3ca4127eafb0008a00555b697338a0b1ce91b",
+  "python": "3.14.3",
+  "extra": {
+    "rows": 340,
+    "output_file": "signal_strength.csv"
+  }
+}

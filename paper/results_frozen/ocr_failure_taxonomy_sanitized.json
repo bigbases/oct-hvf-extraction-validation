@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "generated": "2026-07-05",
+    "source": "data/oct_values_raw.csv (340 rows) — avg_gcl_os None rate diagnosis",
+    "context": "parse_gcl_table() OCR pipeline fix (Phase 1.5 STEP 4 followup)",
+    "purpose": "Phase 3 accuracy verification + Discussion 한계 근거 + 화질 층화 검증 증거"
+  },
+  "summary": {
+    "total_raw_rows": 340,
+    "avg_gcl_os_none_before_fix": 158,
+    "avg_gcl_os_none_rate_before_fix": "46.5%",
+    "expected_recovery_after_fix": "~75% of 158 = ~119 cases",
+    "expected_none_after_fix": "~39 cases (~11.5%)"
+  },
+  "taxonomy": {
+    "TYPE_A_structural_missing": {
+      "label": "구조적 결측 — 단안(OD-only) GCA 스캔",
+      "description": "GCA 리포트 OS 컬럼에 'X' 표시. OCR 실패가 아니라 데이터 부재. 기기가 OD만 스캔하여 OS 값을 기록하지 않음.",
+      "ocr_output": "X (숫자 없음)",
+      "fixable": false,
+      "fix_reason": "데이터 자체가 리포트에 없음",
+      "estimated_count_in_158": "~24 (sample 20에서 3/20 = 15%)",
+      "examples": "[3 examples redacted for PHI]"
+    },
+    "TYPE_B_jpeg_stroke_fragmentation": {
+      "label": "OCR 실패 Type B — JPEG 압축 + 밝은 녹색 배경 → 획 단편화",
+      "description": "값이 리포트에 존재(인간은 읽을 수 있음)하나 JPEG 압축 아티팩트와 밝은 녹색 배경이 겹쳐 글자 획이 점·선 단편으로 분해됨. 어떤 threshold와 PSM 조합도 완전한 두 자리 숫자를 복원하지 못함.",
+      "failure_mechanism": "밝은 녹색 배경(RGB ~80/220/80) + JPEG 압축 → 8→테두리만 남거나 7이 가로선+점 2개로 분해. Tesseract가 단일 digit 또는 빈 문자열만 반환.",
+      "ocr_output": "단일 digit(1, 7 등) 또는 empty — 범위 40-100 필터 탈락",
+      "fixable": false,
+      "fix_reason": "이미지 픽셀 자체가 파괴됨. 원본 DICOM 재추출 없이는 복구 불가.",
+      "estimated_count_in_158": "~10 (sample 20에서 2/20 = 10%)",
+      "examples": "[2 examples redacted for PHI]"
+    },
+    "TYPE_C_green_background_recoverable": {
+      "label": "OCR 실패 Type C — 녹색 배경(정상범위) → grayscale 저대비",
+      "description": "값이 리포트에 존재하고 이미지 품질도 양호함. 정상범위 표시용 녹색 배경(RGB ~100/200/100)이 grayscale 변환 시 중간밝기(L~160)로 렌더링되어 contrast 부족. 원래 파이프라인(grayscale+contrast only)이 실패.",
+      "failure_mechanism": "녹색 배경 → L≈160 → contrast 3배 후 ~221(회색, not white) → text contrast 불충분 → Tesseract 실패. _rgb_binary(max채널)로 녹색→흰색 변환 시 해결됨.",
+      "ocr_output": "None (원래 파이프라인) → 수정 후 정상 값 반환",
+      "fixable": true,
+      "fix_method": "parse_gcl_table() 2차 폴백: ocr_cell(_rgb_binary) + 3차 폴백: thr=170/190 no-pad",
+      "estimated_count_in_158": "~119 (sample 20에서 14→15/20 = 75%) — 수정 후 복구됨",
+      "examples": "[2 examples redacted for PHI]"
+    }
+  },
+  "fix_applied": {
+    "file": "src/hvf/ocr_oct.py",
+    "function": "parse_gcl_table()",
+    "change": "3-stage OCR pipeline: (1) grayscale+contrast PSM6/8 [원래 방식] → (2) ocr_cell() rgb_binary fallback → (3) thr=170/190 no-pad rgb_binary fallback",
+    "scope": "parse_gcl_table() 내부만. parse_sectors(), parse_rnfl_summary(), VF, RNFL 무변경.",
+    "regression_check": {
+      "avg_gcl_od": "30/30 |diff|<=2",
+      "avg_gcl_os_have": "17/17 |diff|<=2",
+      "min_gcl_od": "30/30 |diff|<=2",
+      "min_gcl_os": "30/30 |diff|<=2",
+      "values_over100_in_raw": 0
+    }
+  },
+  "implications_for_paper": {
+    "discussion_limitation": "GCA 리포트 JPG의 OCR 한계: 정상범위(녹색) 배경 셀에서 grayscale 기반 OCR 실패율 증가. 수정 후 75% 복구. 잔여 실패 중 ~40%는 단안 스캔(데이터 부재), ~15%는 JPEG 압축으로 인한 획 단편화.",
+    "quality_stratification": "TYPE B 케이스(2건 확인)는 저품질 JPG 추출의 실증 사례. 향후 DICOM 직접 추출 또는 TIF 원본 사용 권고.",
+    "phase3_accuracy_classification": "VF OCR 정확도 검증 시 유사 분류 적용 예정: (A) 데이터 부재, (B) 이미지 손상, (C) 알고리즘 한계"
+  },
+  "_phi_note": "PHI (patient_id/oct_date/examples) redacted from this frozen copy. Canonical file with examples stays local in results/ (do NOT commit)."
+}

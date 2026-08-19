@@ -1,0 +1,53 @@
+{
+  "generated": "2026-07-05",
+  "output": "data/demographics.csv",
+  "sha256": "cd063bb83d581daa94d3569055b673bae6540397caee955c34ae1fa8e8e51e87",
+  "n_patients": 144,
+  "stats": {
+    "dob_and_sex": 96,
+    "dob_only": 42,
+    "sex_only": 2,
+    "incomplete": 4
+  },
+  "eyes_stats": {
+    "age_sex_adjusted": 183,
+    "age_only_adjusted": 264,
+    "total": 276
+  },
+  "regression": {
+    "n_samples": 10,
+    "dob_match": 7,
+    "note": "OK 환자 10개 샘플 dob OCR vs 기존값 비교"
+  },
+  "method": {
+    "dob": "re.findall 전체 순회 후 1920-2010 필터 (검사날짜 버그 수정)",
+    "sex": "oct_inventory_merged 기존값만 — Korean OCR 불가 (Tesseract kor+eng 한계)"
+  },
+  "dob_recovery": {
+    "dw": {
+      "n": 22,
+      "recovered": 19
+    },
+    "dw+zeiss": {
+      "n": 17,
+      "recovered": 14
+    }
+  },
+  "sex_recovery_2026_07_10": {
+    "method": "리포트 헤더 \"성별:\" 한글 셀 수동 판독(몽타주 검증). Tesseract 한글팩 미설치로 초기 파이프라인이 놓친 값 복구.",
+    "recovered_patients": 14,
+    "recovered_male": 8,
+    "recovered_female": 6,
+    "still_missing_patients": 32,
+    "reason_still_missing": "리포트 자체가 \"성별: 알 수 없음\"(스캔시 미입력)",
+    "patient_dist_after": {
+      "Female": 35,
+      "Male": 77,
+      "MISSING": 32
+    },
+    "eyes_missing_before": 89,
+    "eyes_missing_after": 62,
+    "downstream": "analysis_master sex+covariate_set 갱신(full 181→204눈). phase5_3만 재실행(Tier3 178→~200눈, β STABLE, sex 여전히 비유의)."
+  },
+  "demographics_sha256_after": "18d7fa3cbe347f3fc6fd445785d781cfc5bd83a7f65a8b5d49d606c10db05723"
+}

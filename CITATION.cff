@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "OCT and visual field report extraction and validation pipeline"
+abstract: >-
+  A deterministic OCR pipeline that extracts 54 visual-field points and OCT
+  GCIPL/RNFL metrics from real-world JPG clinical reports, with a cell-wise
+  validation protocol scoring accuracy against a manual-review reference and a
+  remediability-based error taxonomy. Research code accompanying the manuscript;
+  raw clinical data are not included (IRB restriction).
+type: software
+authors:
+  - given-names: "Min-Sol"
+    family-names: "Kim"
+    affiliation: "Seoul National University of Science and Technology, Republic of Korea"
+  - given-names: "Bo-Young"
+    family-names: "Lim"
+    affiliation: "Seoul National University of Science and Technology, Republic of Korea"
+  - given-names: "Hyuk-Yoon"
+    family-names: "Kwon"
+    affiliation: "Seoul National University of Science and Technology, Republic of Korea"
+license: MIT
+repository-code: "https://github.com/bigbases/oct-hvf-extraction-validation"
+version: "1.0.0"
+date-released: 2026-08-20
+keywords:
+  - glaucoma
+  - optical coherence tomography
+  - visual field
+  - optical character recognition
+  - structure-function
+  - extraction validation
+# A Zenodo DOI is optional; uncomment and fill in once minted.
+# doi: "10.5281/zenodo.XXXXXXX"

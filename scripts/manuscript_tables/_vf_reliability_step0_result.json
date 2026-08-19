@@ -1,0 +1,333 @@
+{
+  "n_all": 275,
+  "n_clean": 138,
+  "n_vf_reliability_unmatched": 5,
+  "head_to_head_all": {
+    "gcl_avg": {
+      "n": 270,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.4527,
+        "p": 0.0,
+        "ci": [
+          0.3523,
+          0.5427
+        ]
+      },
+      "pearson": {
+        "r": 0.4252,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.4664,
+        "se": 0.0565,
+        "p": 0.0,
+        "ci": [
+          0.3557,
+          0.5771
+        ]
+      }
+    },
+    "gcl_min": {
+      "n": 269,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.4989,
+        "p": 0.0,
+        "ci": [
+          0.4034,
+          0.5837
+        ]
+      },
+      "pearson": {
+        "r": 0.4464,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.4393,
+        "se": 0.0529,
+        "p": 0.0,
+        "ci": [
+          0.3357,
+          0.5429
+        ]
+      }
+    },
+    "rnfl_q_i": {
+      "n": 270,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.529,
+        "p": 0.0,
+        "ci": [
+          0.4373,
+          0.6099
+        ]
+      },
+      "pearson": {
+        "r": 0.5178,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5319,
+        "se": 0.0542,
+        "p": 0.0,
+        "ci": [
+          0.4256,
+          0.6383
+        ]
+      }
+    },
+    "rnfl_quad_mean": {
+      "n": 274,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.4826,
+        "p": 0.0,
+        "ci": [
+          0.3862,
+          0.5686
+        ]
+      },
+      "pearson": {
+        "r": 0.4422,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.4917,
+        "se": 0.0561,
+        "p": 0.0,
+        "ci": [
+          0.3818,
+          0.6016
+        ]
+      }
+    },
+    "rnfl_ch_mean": {
+      "n": 273,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.488,
+        "p": 0.0,
+        "ci": [
+          0.392,
+          0.5735
+        ]
+      },
+      "pearson": {
+        "r": 0.4539,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5082,
+        "se": 0.0566,
+        "p": 0.0,
+        "ci": [
+          0.3973,
+          0.619
+        ]
+      }
+    }
+  },
+  "head_to_head_clean": {
+    "gcl_avg": {
+      "n": 136,
+      "n_patients": 84,
+      "spearman": {
+        "rho": 0.5607,
+        "p": 0.0,
+        "ci": [
+          0.4332,
+          0.6661
+        ]
+      },
+      "pearson": {
+        "r": 0.5978,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.667,
+        "se": 0.0769,
+        "p": 0.0,
+        "ci": [
+          0.5164,
+          0.8176
+        ]
+      }
+    },
+    "gcl_min": {
+      "n": 136,
+      "n_patients": 84,
+      "spearman": {
+        "rho": 0.6049,
+        "p": 0.0,
+        "ci": [
+          0.4861,
+          0.7018
+        ]
+      },
+      "pearson": {
+        "r": 0.5647,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5897,
+        "se": 0.0717,
+        "p": 0.0,
+        "ci": [
+          0.4492,
+          0.7303
+        ]
+      }
+    },
+    "rnfl_q_i": {
+      "n": 136,
+      "n_patients": 84,
+      "spearman": {
+        "rho": 0.5805,
+        "p": 0.0,
+        "ci": [
+          0.4568,
+          0.6822
+        ]
+      },
+      "pearson": {
+        "r": 0.573,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.6158,
+        "se": 0.0754,
+        "p": 0.0,
+        "ci": [
+          0.468,
+          0.7635
+        ]
+      }
+    },
+    "rnfl_quad_mean": {
+      "n": 138,
+      "n_patients": 84,
+      "spearman": {
+        "rho": 0.5468,
+        "p": 0.0,
+        "ci": [
+          0.4179,
+          0.6542
+        ]
+      },
+      "pearson": {
+        "r": 0.535,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5743,
+        "se": 0.0789,
+        "p": 0.0,
+        "ci": [
+          0.4196,
+          0.7289
+        ]
+      }
+    },
+    "rnfl_ch_mean": {
+      "n": 138,
+      "n_patients": 84,
+      "spearman": {
+        "rho": 0.5472,
+        "p": 0.0,
+        "ci": [
+          0.4184,
+          0.6545
+        ]
+      },
+      "pearson": {
+        "r": 0.5395,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5762,
+        "se": 0.0783,
+        "p": 0.0,
+        "ci": [
+          0.4227,
+          0.7296
+        ]
+      }
+    }
+  },
+  "complementarity_all": {
+    "joint": {
+      "n": 269,
+      "n_patients": 144,
+      "gcl_avg": {
+        "beta": 0.3042,
+        "se": 0.0595,
+        "p": 0.0,
+        "ci": [
+          0.1876,
+          0.4208
+        ]
+      },
+      "rnfl_q_i": {
+        "beta": 0.3772,
+        "se": 0.059,
+        "p": 0.0,
+        "ci": [
+          0.2615,
+          0.4928
+        ]
+      }
+    },
+    "diag": {
+      "n": 269,
+      "n_patients": 144,
+      "predictor_corr_r": 0.6045,
+      "vif": 1.5758,
+      "aic_gcl_only": 643.78,
+      "aic_rnfl_only": 630.33,
+      "aic_joint": 607.59,
+      "delta_aic_vs_gcl_only": 36.19,
+      "delta_aic_vs_rnfl_only": 22.74,
+      "aic_note": "ML(reml=False), same dropna sample; positive ΔAIC = joint model better"
+    }
+  },
+  "complementarity_clean": {
+    "joint": {
+      "n": 136,
+      "n_patients": 84,
+      "gcl_avg": {
+        "beta": 0.4614,
+        "se": 0.0932,
+        "p": 0.0,
+        "ci": [
+          0.2788,
+          0.644
+        ]
+      },
+      "rnfl_q_i": {
+        "beta": 0.3559,
+        "se": 0.0898,
+        "p": 7e-05,
+        "ci": [
+          0.1799,
+          0.5319
+        ]
+      }
+    },
+    "diag": {
+      "n": 136,
+      "n_patients": 84,
+      "predictor_corr_r": 0.7196,
+      "vif": 2.0737,
+      "aic_gcl_only": 318.46,
+      "aic_rnfl_only": 326.29,
+      "aic_joint": 305.81,
+      "delta_aic_vs_gcl_only": 12.65,
+      "delta_aic_vs_rnfl_only": 20.49,
+      "aic_note": "ML(reml=False), same dropna sample; positive ΔAIC = joint model better"
+    }
+  },
+  "verdict_all": "COMPLEMENTARITY HOLDS",
+  "verdict_clean": "COMPLEMENTARITY HOLDS"
+}

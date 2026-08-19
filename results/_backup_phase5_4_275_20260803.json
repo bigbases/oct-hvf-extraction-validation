@@ -1,0 +1,522 @@
+{
+  "generated": "2026-07-23",
+  "input_sha256": "ad953738e71a10bc5651ff32b4b39230e2f2f8402b4b3df35c4c14c2b0794738",
+  "severity_cutoffs": {
+    "mild_threshold_dB": 27.1,
+    "lower_tertile_dB": 21.6
+  },
+  "head_to_head": {
+    "gcl_avg": {
+      "n": 270,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.4527,
+        "p": 0.0,
+        "ci": [
+          0.3523,
+          0.5427
+        ]
+      },
+      "pearson": {
+        "r": 0.4252,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.4664,
+        "se": 0.0565,
+        "p": 0.0,
+        "ci": [
+          0.3557,
+          0.5771
+        ]
+      }
+    },
+    "gcl_min": {
+      "n": 269,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.4989,
+        "p": 0.0,
+        "ci": [
+          0.4034,
+          0.5837
+        ]
+      },
+      "pearson": {
+        "r": 0.4464,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.4393,
+        "se": 0.0529,
+        "p": 0.0,
+        "ci": [
+          0.3357,
+          0.5429
+        ]
+      }
+    },
+    "rnfl_q_i": {
+      "n": 270,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.529,
+        "p": 0.0,
+        "ci": [
+          0.4373,
+          0.6099
+        ]
+      },
+      "pearson": {
+        "r": 0.5178,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5319,
+        "se": 0.0542,
+        "p": 0.0,
+        "ci": [
+          0.4256,
+          0.6383
+        ]
+      }
+    },
+    "rnfl_quad_mean": {
+      "n": 274,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.4826,
+        "p": 0.0,
+        "ci": [
+          0.3862,
+          0.5686
+        ]
+      },
+      "pearson": {
+        "r": 0.4422,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.4917,
+        "se": 0.0561,
+        "p": 0.0,
+        "ci": [
+          0.3818,
+          0.6016
+        ]
+      }
+    },
+    "rnfl_ch_mean": {
+      "n": 273,
+      "n_patients": 144,
+      "spearman": {
+        "rho": 0.488,
+        "p": 0.0,
+        "ci": [
+          0.392,
+          0.5735
+        ]
+      },
+      "pearson": {
+        "r": 0.4539,
+        "p": 0.0
+      },
+      "lme": {
+        "beta": 0.5082,
+        "se": 0.0566,
+        "p": 0.0,
+        "ci": [
+          0.3973,
+          0.619
+        ]
+      }
+    },
+    "gcl_vs_rnfl_ci_overlap": true
+  },
+  "severity_stratified": {
+    "mild": {
+      "gcl_avg": {
+        "n": 91,
+        "n_patients": 60,
+        "spearman": {
+          "rho": 0.33,
+          "p": 0.0014,
+          "ci": [
+            0.1331,
+            0.5018
+          ]
+        },
+        "pearson": {
+          "r": 0.3478,
+          "p": 0.00073
+        },
+        "lme": {
+          "beta": 0.3339,
+          "se": 0.0957,
+          "p": 0.00049,
+          "ci": [
+            0.1463,
+            0.5215
+          ]
+        }
+      },
+      "gcl_min": {
+        "n": 91,
+        "n_patients": 60,
+        "spearman": {
+          "rho": 0.3629,
+          "p": 0.00041,
+          "ci": [
+            0.1696,
+            0.5293
+          ]
+        },
+        "pearson": {
+          "r": 0.3302,
+          "p": 0.00139
+        },
+        "lme": {
+          "beta": 0.2526,
+          "se": 0.0895,
+          "p": 0.00475,
+          "ci": [
+            0.0772,
+            0.4279
+          ]
+        }
+      },
+      "rnfl_q_i": {
+        "n": 91,
+        "n_patients": 60,
+        "spearman": {
+          "rho": 0.1592,
+          "p": 0.13166,
+          "ci": [
+            -0.0483,
+            0.3536
+          ]
+        },
+        "pearson": {
+          "r": 0.2428,
+          "p": 0.02039
+        },
+        "lme": {
+          "beta": 0.2071,
+          "se": 0.111,
+          "p": 0.06215,
+          "ci": [
+            -0.0105,
+            0.4247
+          ]
+        }
+      },
+      "rnfl_quad_mean": {
+        "n": 91,
+        "n_patients": 60,
+        "spearman": {
+          "rho": 0.2058,
+          "p": 0.05031,
+          "ci": [
+            -0.0001,
+            0.395
+          ]
+        },
+        "pearson": {
+          "r": 0.2881,
+          "p": 0.00562
+        },
+        "lme": {
+          "beta": 0.2656,
+          "se": 0.1059,
+          "p": 0.01214,
+          "ci": [
+            0.058,
+            0.4732
+          ]
+        }
+      },
+      "rnfl_ch_mean": {
+        "n": 91,
+        "n_patients": 60,
+        "spearman": {
+          "rho": 0.2149,
+          "p": 0.04082,
+          "ci": [
+            0.0093,
+            0.403
+          ]
+        },
+        "pearson": {
+          "r": 0.294,
+          "p": 0.00467
+        },
+        "lme": {
+          "beta": 0.2757,
+          "se": 0.1058,
+          "p": 0.00918,
+          "ci": [
+            0.0683,
+            0.4832
+          ]
+        }
+      }
+    },
+    "mod+severe": {
+      "gcl_avg": {
+        "n": 179,
+        "n_patients": 105,
+        "spearman": {
+          "rho": 0.3109,
+          "p": 2e-05,
+          "ci": [
+            0.1721,
+            0.4376
+          ]
+        },
+        "pearson": {
+          "r": 0.3028,
+          "p": 4e-05
+        },
+        "lme": {
+          "beta": 0.3622,
+          "se": 0.0719,
+          "p": 0.0,
+          "ci": [
+            0.2214,
+            0.5031
+          ]
+        }
+      },
+      "gcl_min": {
+        "n": 178,
+        "n_patients": 104,
+        "spearman": {
+          "rho": 0.2906,
+          "p": 8e-05,
+          "ci": [
+            0.1499,
+            0.4198
+          ]
+        },
+        "pearson": {
+          "r": 0.2997,
+          "p": 5e-05
+        },
+        "lme": {
+          "beta": 0.3114,
+          "se": 0.0657,
+          "p": 0.0,
+          "ci": [
+            0.1826,
+            0.4402
+          ]
+        }
+      },
+      "rnfl_q_i": {
+        "n": 179,
+        "n_patients": 106,
+        "spearman": {
+          "rho": 0.4305,
+          "p": 0.0,
+          "ci": [
+            0.303,
+            0.5429
+          ]
+        },
+        "pearson": {
+          "r": 0.4067,
+          "p": 0.0
+        },
+        "lme": {
+          "beta": 0.3568,
+          "se": 0.0681,
+          "p": 0.0,
+          "ci": [
+            0.2232,
+            0.4903
+          ]
+        }
+      },
+      "rnfl_quad_mean": {
+        "n": 183,
+        "n_patients": 108,
+        "spearman": {
+          "rho": 0.4066,
+          "p": 0.0,
+          "ci": [
+            0.278,
+            0.521
+          ]
+        },
+        "pearson": {
+          "r": 0.3341,
+          "p": 0.0
+        },
+        "lme": {
+          "beta": 0.357,
+          "se": 0.0724,
+          "p": 0.0,
+          "ci": [
+            0.2151,
+            0.499
+          ]
+        }
+      },
+      "rnfl_ch_mean": {
+        "n": 182,
+        "n_patients": 107,
+        "spearman": {
+          "rho": 0.4194,
+          "p": 0.0,
+          "ci": [
+            0.2918,
+            0.5324
+          ]
+        },
+        "pearson": {
+          "r": 0.353,
+          "p": 0.0
+        },
+        "lme": {
+          "beta": 0.3761,
+          "se": 0.0718,
+          "p": 0.0,
+          "ci": [
+            0.2354,
+            0.5168
+          ]
+        }
+      }
+    }
+  },
+  "complementarity": {
+    "gcl_avg__rnfl_q_i": {
+      "n": 269,
+      "n_patients": 144,
+      "gcl_avg": {
+        "beta": 0.3042,
+        "se": 0.0595,
+        "p": 0.0,
+        "ci": [
+          0.1876,
+          0.4208
+        ]
+      },
+      "rnfl_q_i": {
+        "beta": 0.3772,
+        "se": 0.059,
+        "p": 0.0,
+        "ci": [
+          0.2615,
+          0.4928
+        ]
+      },
+      "vif": 1.5758,
+      "predictor_corr_r": 0.6045,
+      "aic_gcl_only": 643.78,
+      "aic_rnfl_only": 630.33,
+      "aic_joint": 607.59,
+      "delta_aic_vs_gcl_only": 36.19,
+      "delta_aic_vs_rnfl_only": 22.74,
+      "aic_note": "ML(reml=False), same dropna sample; positive ΔAIC = joint model better"
+    },
+    "gcl_avg__rnfl_quad_mean": {
+      "n": 270,
+      "n_patients": 144,
+      "gcl_avg": {
+        "beta": 0.2998,
+        "se": 0.0643,
+        "p": 0.0,
+        "ci": [
+          0.1737,
+          0.4258
+        ]
+      },
+      "rnfl_quad_mean": {
+        "beta": 0.3315,
+        "se": 0.0665,
+        "p": 0.0,
+        "ci": [
+          0.2011,
+          0.4619
+        ]
+      },
+      "vif": 1.7871,
+      "predictor_corr_r": 0.6637,
+      "aic_gcl_only": 649.29,
+      "aic_rnfl_only": 646.26,
+      "aic_joint": 627.5,
+      "delta_aic_vs_gcl_only": 21.79,
+      "delta_aic_vs_rnfl_only": 18.76,
+      "aic_note": "ML(reml=False), same dropna sample; positive ΔAIC = joint model better"
+    },
+    "gcl_min__rnfl_q_i": {
+      "n": 268,
+      "n_patients": 144,
+      "gcl_min": {
+        "beta": 0.2924,
+        "se": 0.0538,
+        "p": 0.0,
+        "ci": [
+          0.187,
+          0.3978
+        ]
+      },
+      "rnfl_q_i": {
+        "beta": 0.3833,
+        "se": 0.0577,
+        "p": 0.0,
+        "ci": [
+          0.2702,
+          0.4965
+        ]
+      },
+      "vif": 1.4073,
+      "predictor_corr_r": 0.538,
+      "aic_gcl_only": 641.74,
+      "aic_rnfl_only": 628.53,
+      "aic_joint": 602.59,
+      "delta_aic_vs_gcl_only": 39.15,
+      "delta_aic_vs_rnfl_only": 25.94,
+      "aic_note": "ML(reml=False), same dropna sample; positive ΔAIC = joint model better"
+    },
+    "gcl_avg__rnfl_ch_mean": {
+      "n": 270,
+      "n_patients": 144,
+      "gcl_avg": {
+        "beta": 0.2944,
+        "se": 0.0648,
+        "p": 1e-05,
+        "ci": [
+          0.1673,
+          0.4215
+        ]
+      },
+      "rnfl_ch_mean": {
+        "beta": 0.3346,
+        "se": 0.0668,
+        "p": 0.0,
+        "ci": [
+          0.2036,
+          0.4656
+        ]
+      },
+      "vif": 1.8287,
+      "predictor_corr_r": 0.6732,
+      "aic_gcl_only": 649.29,
+      "aic_rnfl_only": 644.99,
+      "aic_joint": 627.28,
+      "delta_aic_vs_gcl_only": 22.01,
+      "delta_aic_vs_rnfl_only": 17.72,
+      "aic_note": "ML(reml=False), same dropna sample; positive ΔAIC = joint model better"
+    },
+    "beta_attenuation": {
+      "gcl_avg_solo": 0.4664,
+      "gcl_avg_joint": 0.3042,
+      "rnfl_q_i_solo": 0.5319,
+      "rnfl_q_i_joint": 0.3772,
+      "gcl_attenuation_pct": 34.8,
+      "rnfl_attenuation_pct": 29.1
+    }
+  }
+}

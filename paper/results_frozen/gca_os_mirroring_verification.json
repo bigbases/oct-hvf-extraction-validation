@@ -1,0 +1,72 @@
+{
+  "n_common": 273,
+  "n_od_rows": 137,
+  "n_os_rows": 136,
+  "convention_detected": "raw=identical-angle -> OD행 swap/OS행 as-is",
+  "convention_A_pct": 5.5,
+  "convention_B_pct": 82.4,
+  "per_column_all_6_sectors": {
+    "od_s_sup": {
+      "n": 237,
+      "exact": 211,
+      "pct": 89.0
+    },
+    "od_s_sup_t": {
+      "n": 266,
+      "exact": 208,
+      "pct": 78.2
+    },
+    "od_s_inf_t": {
+      "n": 265,
+      "exact": 142,
+      "pct": 53.6
+    },
+    "od_s_inf": {
+      "n": 180,
+      "exact": 58,
+      "pct": 32.2
+    },
+    "od_s_inf_n": {
+      "n": 263,
+      "exact": 189,
+      "pct": 71.9
+    },
+    "od_s_sup_n": {
+      "n": 266,
+      "exact": 212,
+      "pct": 79.7
+    },
+    "os_s_sup": {
+      "n": 264,
+      "exact": 239,
+      "pct": 90.5
+    },
+    "os_s_sup_t": {
+      "n": 266,
+      "exact": 247,
+      "pct": 92.9
+    },
+    "os_s_inf_t": {
+      "n": 262,
+      "exact": 188,
+      "pct": 71.8
+    },
+    "os_s_inf": {
+      "n": 176,
+      "exact": 51,
+      "pct": 29.0
+    },
+    "os_s_inf_n": {
+      "n": 262,
+      "exact": 187,
+      "pct": 71.4
+    },
+    "os_s_sup_n": {
+      "n": 266,
+      "exact": 248,
+      "pct": 93.2
+    }
+  },
+  "overall_mean_pct": 73.3,
+  "naive_no_row_condition_pct_for_swap_cols": 44.6
+}

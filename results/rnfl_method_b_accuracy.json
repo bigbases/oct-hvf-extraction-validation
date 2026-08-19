@@ -1,0 +1,39 @@
+{
+  "method": "Method B: OS 행에서 rnfl_q_t<->rnfl_q_n 스왑 후 공식 GT(oct_tabular_90d.csv) 대조",
+  "n_rows_matched_to_gt": 280,
+  "n_valid": 1069,
+  "n_exact": 838,
+  "exact_match_pct": 78.4,
+  "n_gt_missing": 6,
+  "n_raw_missing": 45,
+  "missing_rate_pct": 4.0,
+  "per_column": {
+    "rnfl_q_s": {
+      "exact": 201,
+      "n": 273,
+      "pct": 73.6
+    },
+    "rnfl_q_t": {
+      "exact": 201,
+      "n": 245,
+      "pct": 82.0
+    },
+    "rnfl_q_i": {
+      "exact": 203,
+      "n": 274,
+      "pct": 74.1
+    },
+    "rnfl_q_n": {
+      "exact": 233,
+      "n": 277,
+      "pct": 84.1
+    }
+  },
+  "rnfl_q_i_alone": {
+    "exact": 203,
+    "n": 274,
+    "pct": 74.1
+  },
+  "cv_flag_rate_pct": 47.9,
+  "n_flagged": 134
+}

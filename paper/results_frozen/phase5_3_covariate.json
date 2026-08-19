@@ -1,0 +1,423 @@
+{
+  "generated": "2026-08-03",
+  "input_sha256": "ad953738e71a10bc5651ff32b4b39230e2f2f8402b4b3df35c4c14c2b0794738",
+  "design": {
+    "tiers": {
+      "tier1_full": "전체 187, 공변량 없음",
+      "tier2_age": "covariate_set in (full,age), age 보정",
+      "tier3_age_sex": "covariate_set==full, age+sex 보정"
+    },
+    "outcome": "vf_mean (Z-std)",
+    "lme": "random intercept per patient (REML)",
+    "covariates_z": "age Z-std; sex binary 0/1 (Female=0, Male=1)"
+  },
+  "by_metric": {
+    "gcl_avg": {
+      "tier1_full": {
+        "n": 185,
+        "n_patients": 103,
+        "struct_beta": {
+          "beta": 0.5723,
+          "se": 0.0668,
+          "p": 0.0,
+          "ci": [
+            0.4413,
+            0.7033
+          ]
+        }
+      },
+      "tier2_age": {
+        "n": 178,
+        "n_patients": 99,
+        "struct_beta": {
+          "beta": 0.5348,
+          "se": 0.0701,
+          "p": 0.0,
+          "ci": [
+            0.3973,
+            0.6722
+          ]
+        },
+        "age_coef": {
+          "beta": -0.1752,
+          "se": 0.079,
+          "p": 0.02659,
+          "ci": [
+            -0.3301,
+            -0.0203
+          ]
+        }
+      },
+      "tier3_age_sex": {
+        "n": 139,
+        "n_patients": 78,
+        "struct_beta": {
+          "beta": 0.4806,
+          "se": 0.081,
+          "p": 0.0,
+          "ci": [
+            0.3218,
+            0.6393
+          ]
+        },
+        "age_coef": {
+          "beta": -0.1998,
+          "se": 0.0945,
+          "p": 0.03442,
+          "ci": [
+            -0.3849,
+            -0.0147
+          ]
+        },
+        "sex_coef": {
+          "beta": 0.049,
+          "se": 0.204,
+          "p": 0.8101,
+          "ci": [
+            -0.3508,
+            0.4488
+          ]
+        }
+      }
+    },
+    "gcl_min": {
+      "tier1_full": {
+        "n": 185,
+        "n_patients": 103,
+        "struct_beta": {
+          "beta": 0.5362,
+          "se": 0.0624,
+          "p": 0.0,
+          "ci": [
+            0.4139,
+            0.6585
+          ]
+        }
+      },
+      "tier2_age": {
+        "n": 178,
+        "n_patients": 99,
+        "struct_beta": {
+          "beta": 0.5096,
+          "se": 0.0641,
+          "p": 0.0,
+          "ci": [
+            0.3839,
+            0.6353
+          ]
+        },
+        "age_coef": {
+          "beta": -0.1925,
+          "se": 0.076,
+          "p": 0.01129,
+          "ci": [
+            -0.3414,
+            -0.0436
+          ]
+        }
+      },
+      "tier3_age_sex": {
+        "n": 139,
+        "n_patients": 78,
+        "struct_beta": {
+          "beta": 0.4737,
+          "se": 0.0738,
+          "p": 0.0,
+          "ci": [
+            0.329,
+            0.6184
+          ]
+        },
+        "age_coef": {
+          "beta": -0.235,
+          "se": 0.0893,
+          "p": 0.00847,
+          "ci": [
+            -0.41,
+            -0.06
+          ]
+        },
+        "sex_coef": {
+          "beta": -0.0984,
+          "se": 0.1921,
+          "p": 0.60856,
+          "ci": [
+            -0.475,
+            0.2782
+          ]
+        }
+      }
+    },
+    "rnfl_q_i": {
+      "tier1_full": {
+        "n": 185,
+        "n_patients": 103,
+        "struct_beta": {
+          "beta": 0.5904,
+          "se": 0.0664,
+          "p": 0.0,
+          "ci": [
+            0.4602,
+            0.7205
+          ]
+        }
+      },
+      "tier2_age": {
+        "n": 178,
+        "n_patients": 99,
+        "struct_beta": {
+          "beta": 0.5588,
+          "se": 0.0676,
+          "p": 0.0,
+          "ci": [
+            0.4263,
+            0.6912
+          ]
+        },
+        "age_coef": {
+          "beta": -0.2219,
+          "se": 0.0751,
+          "p": 0.00312,
+          "ci": [
+            -0.3691,
+            -0.0747
+          ]
+        }
+      },
+      "tier3_age_sex": {
+        "n": 139,
+        "n_patients": 78,
+        "struct_beta": {
+          "beta": 0.5631,
+          "se": 0.0747,
+          "p": 0.0,
+          "ci": [
+            0.4167,
+            0.7096
+          ]
+        },
+        "age_coef": {
+          "beta": -0.2381,
+          "se": 0.0844,
+          "p": 0.00477,
+          "ci": [
+            -0.4034,
+            -0.0727
+          ]
+        },
+        "sex_coef": {
+          "beta": -0.0215,
+          "se": 0.1833,
+          "p": 0.9068,
+          "ci": [
+            -0.3807,
+            0.3378
+          ]
+        }
+      }
+    },
+    "rnfl_quad_mean": {
+      "tier1_full": {
+        "n": 187,
+        "n_patients": 103,
+        "struct_beta": {
+          "beta": 0.5463,
+          "se": 0.0702,
+          "p": 0.0,
+          "ci": [
+            0.4087,
+            0.684
+          ]
+        }
+      },
+      "tier2_age": {
+        "n": 180,
+        "n_patients": 99,
+        "struct_beta": {
+          "beta": 0.5071,
+          "se": 0.0723,
+          "p": 0.0,
+          "ci": [
+            0.3654,
+            0.6488
+          ]
+        },
+        "age_coef": {
+          "beta": -0.2127,
+          "se": 0.0789,
+          "p": 0.007,
+          "ci": [
+            -0.3673,
+            -0.0581
+          ]
+        }
+      },
+      "tier3_age_sex": {
+        "n": 140,
+        "n_patients": 78,
+        "struct_beta": {
+          "beta": 0.4742,
+          "se": 0.0827,
+          "p": 0.0,
+          "ci": [
+            0.312,
+            0.6364
+          ]
+        },
+        "age_coef": {
+          "beta": -0.2461,
+          "se": 0.0903,
+          "p": 0.00644,
+          "ci": [
+            -0.4231,
+            -0.0691
+          ]
+        },
+        "sex_coef": {
+          "beta": -0.1095,
+          "se": 0.1932,
+          "p": 0.57099,
+          "ci": [
+            -0.4882,
+            0.2692
+          ]
+        }
+      }
+    },
+    "rnfl_ch_mean": {
+      "tier1_full": {
+        "n": 187,
+        "n_patients": 103,
+        "struct_beta": {
+          "beta": 0.5455,
+          "se": 0.0698,
+          "p": 0.0,
+          "ci": [
+            0.4087,
+            0.6823
+          ]
+        }
+      },
+      "tier2_age": {
+        "n": 180,
+        "n_patients": 99,
+        "struct_beta": {
+          "beta": 0.5071,
+          "se": 0.0719,
+          "p": 0.0,
+          "ci": [
+            0.3662,
+            0.6481
+          ]
+        },
+        "age_coef": {
+          "beta": -0.2122,
+          "se": 0.0789,
+          "p": 0.00717,
+          "ci": [
+            -0.3668,
+            -0.0575
+          ]
+        }
+      },
+      "tier3_age_sex": {
+        "n": 140,
+        "n_patients": 78,
+        "struct_beta": {
+          "beta": 0.4769,
+          "se": 0.0827,
+          "p": 0.0,
+          "ci": [
+            0.3148,
+            0.639
+          ]
+        },
+        "age_coef": {
+          "beta": -0.2421,
+          "se": 0.0905,
+          "p": 0.00748,
+          "ci": [
+            -0.4195,
+            -0.0647
+          ]
+        },
+        "sex_coef": {
+          "beta": -0.0938,
+          "se": 0.1937,
+          "p": 0.62826,
+          "ci": [
+            -0.4734,
+            0.2859
+          ]
+        }
+      }
+    }
+  },
+  "summary_table": [
+    {
+      "metric": "gcl_avg",
+      "tier1_beta": 0.572,
+      "tier1_p": 0.0,
+      "tier1_n": 185,
+      "tier2_beta": 0.535,
+      "tier2_p": 0.0,
+      "tier2_n": 178,
+      "tier3_beta": 0.481,
+      "tier3_p": 0.0,
+      "tier3_n": 139,
+      "beta_stable": true
+    },
+    {
+      "metric": "gcl_min",
+      "tier1_beta": 0.536,
+      "tier1_p": 0.0,
+      "tier1_n": 185,
+      "tier2_beta": 0.51,
+      "tier2_p": 0.0,
+      "tier2_n": 178,
+      "tier3_beta": 0.474,
+      "tier3_p": 0.0,
+      "tier3_n": 139,
+      "beta_stable": true
+    },
+    {
+      "metric": "rnfl_q_i",
+      "tier1_beta": 0.59,
+      "tier1_p": 0.0,
+      "tier1_n": 185,
+      "tier2_beta": 0.559,
+      "tier2_p": 0.0,
+      "tier2_n": 178,
+      "tier3_beta": 0.563,
+      "tier3_p": 0.0,
+      "tier3_n": 139,
+      "beta_stable": true
+    },
+    {
+      "metric": "rnfl_quad_mean",
+      "tier1_beta": 0.546,
+      "tier1_p": 0.0,
+      "tier1_n": 187,
+      "tier2_beta": 0.507,
+      "tier2_p": 0.0,
+      "tier2_n": 180,
+      "tier3_beta": 0.474,
+      "tier3_p": 0.0,
+      "tier3_n": 140,
+      "beta_stable": true
+    },
+    {
+      "metric": "rnfl_ch_mean",
+      "tier1_beta": 0.545,
+      "tier1_p": 0.0,
+      "tier1_n": 187,
+      "tier2_beta": 0.507,
+      "tier2_p": 0.0,
+      "tier2_n": 180,
+      "tier3_beta": 0.477,
+      "tier3_p": 0.0,
+      "tier3_n": 140,
+      "beta_stable": true
+    }
+  ]
+}

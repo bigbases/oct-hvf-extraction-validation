@@ -1,0 +1,11 @@
+{
+  "generated": "2026-07-04",
+  "source_file": "sfa_review_master_fixed.csv",
+  "source_sha256": "e802cbd95f4ad736332b758ee5b589c9729ed5ffbf04c0e98c97a231e9397fa4",
+  "output_file": "data/sfa_thresholds_corrected.csv",
+  "output_sha256": "8df65cfc32d5d919447db16df9c41a311c7ab9211964fab9db2102cb18a90247",
+  "description": "VF 정본(인간 검수 완성본). Phase B 검수 후 수동 수정 완료. raw OCR과 점 번호 오프셋 차이 있음 — Phase 3 OCR 정확도 계산 시 주의.",
+  "n_eyes": 276,
+  "n_patients": 144,
+  "n_date_remapped": 6
+}

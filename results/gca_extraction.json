@@ -1,0 +1,22 @@
+{
+  "key": "gca_extraction",
+  "value": {
+    "total": 1590,
+    "id_extracted": 1589,
+    "success_rate_pct": 99.9
+  },
+  "script": "scripts/audit_reproduce.py",
+  "inputs": [
+    {
+      "id": "zeiss_gca_ocr.csv",
+      "sha256": "f8a6dcf27a10f5e10e0ffcfc250836e33cf65837fdc268fa680f584b816e0100",
+      "bytes": 330910
+    }
+  ],
+  "created_utc": "2026-07-01T15:22:29+00:00",
+  "git_commit": "079f224c9e8c6c76a6d0d2c9bba1caab018e4ae4",
+  "python": "3.14.3",
+  "extra": {
+    "success_def": "raw 헤더에서 patient_id 파싱 성공"
+  }
+}

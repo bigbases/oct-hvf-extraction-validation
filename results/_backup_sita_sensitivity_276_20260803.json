@@ -1,0 +1,121 @@
+{
+  "generated": "2026-07-09",
+  "input_sha256": {
+    "analysis_master": "cb1f4bac266c20a40c29fd19cce141aef21829deb6282a8636013c0964097e71"
+  },
+  "design": {
+    "purpose": "SITA strategy heterogeneity sensitivity (defensive comparison, cohort NOT reduced)",
+    "n_total": 276,
+    "n_sita_standard": 251,
+    "n_fast_faster": 19,
+    "n_undetermined": 6,
+    "method": "lme_single (Z-standardized REML mixedlm, random intercept per patient), reused from phase5_4"
+  },
+  "metrics": {
+    "gcl_avg": {
+      "full": {
+        "n": 271,
+        "beta": 0.4805,
+        "se": 0.0567,
+        "p": 0.0,
+        "ci": [
+          0.3694,
+          0.5916
+        ],
+        "spearman_rho": 0.4536
+      },
+      "standard_only": {
+        "n": 247,
+        "beta": 0.4515,
+        "se": 0.0605,
+        "p": 0.0,
+        "ci": [
+          0.333,
+          0.57
+        ],
+        "spearman_rho": 0.4304
+      },
+      "delta_beta": -0.029,
+      "ci_overlap": true,
+      "standard_beta_in_full_ci": true,
+      "full_beta_in_std_ci": true,
+      "verdict": "ROBUST"
+    },
+    "rnfl_q_i": {
+      "full": {
+        "n": 271,
+        "beta": 0.5476,
+        "se": 0.0538,
+        "p": 0.0,
+        "ci": [
+          0.4421,
+          0.653
+        ],
+        "spearman_rho": 0.5328
+      },
+      "standard_only": {
+        "n": 247,
+        "beta": 0.5309,
+        "se": 0.0565,
+        "p": 0.0,
+        "ci": [
+          0.4203,
+          0.6416
+        ],
+        "spearman_rho": 0.521
+      },
+      "delta_beta": -0.0167,
+      "ci_overlap": true,
+      "standard_beta_in_full_ci": true,
+      "full_beta_in_std_ci": true,
+      "verdict": "ROBUST"
+    },
+    "rnfl_ch_mean": {
+      "full": {
+        "n": 274,
+        "beta": 0.5216,
+        "se": 0.0567,
+        "p": 0.0,
+        "ci": [
+          0.4104,
+          0.6328
+        ],
+        "spearman_rho": 0.4875
+      },
+      "standard_only": {
+        "n": 249,
+        "beta": 0.5279,
+        "se": 0.0606,
+        "p": 0.0,
+        "ci": [
+          0.4092,
+          0.6467
+        ],
+        "spearman_rho": 0.4779
+      },
+      "delta_beta": 0.0063,
+      "ci_overlap": true,
+      "standard_beta_in_full_ci": true,
+      "full_beta_in_std_ci": true,
+      "verdict": "ROBUST"
+    }
+  },
+  "crosscheck_full_beta_vs_sealed": {
+    "gcl_avg": {
+      "full_beta": 0.4805,
+      "sealed_beta": 0.4805,
+      "match": true
+    },
+    "rnfl_q_i": {
+      "full_beta": 0.5476,
+      "sealed_beta": 0.5476,
+      "match": true
+    },
+    "rnfl_ch_mean": {
+      "full_beta": 0.5216,
+      "sealed_beta": 0.5216,
+      "match": true
+    }
+  },
+  "overall_verdict": "ROBUST_no_effect"
+}

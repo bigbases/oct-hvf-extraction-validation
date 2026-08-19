@@ -1,0 +1,17 @@
+{
+  "generated": "2026-07-04",
+  "description": "sfa_thresholds_raw.csv vs sfa_review_master_fixed.csv 점 번호 오프셋 분석",
+  "finding": "p19 이후 특정 구간에서 raw[p_i] == mfx[p_{i-1}] 패턴 (1칸 밀림)",
+  "affected_eyes": 54,
+  "total_common_eyes": 324,
+  "diff_stats": {
+    "total_cell_diffs": 3152,
+    "int_float_format": 1034,
+    "review_log_corrections": 27,
+    "unexplained": 2091,
+    "shift_pattern_of_unexplained_pct": 61.7
+  },
+  "action_required": "Phase 3 OCR 정확도 계산 시: 54눈은 오프셋 보정 후 비교. raw p19+ 구간 별도 처리 필요.",
+  "raw_file": "data/sfa_thresholds_raw.csv",
+  "do_not_delete": true
+}

@@ -1,0 +1,202 @@
+# ============================================================================
+#  PHI / 데이터 — git 에 절대 들어가면 안 됨
+# ============================================================================
+# 파이프라인 데이터 (모든 중간·최종 산출물은 여기로 모을 것)
+data/
+
+# 원본/재식별 이미지 (환자 이미지 = PHI)
+dw_images/
+phase_b_images/
+_check_samples/
+_crop_auto/
+_crop_final/
+_crop_preview/
+_crop_verify/
+_crop_verify2/
+_text_crop_preview/
+cirrus_out/
+cirrus_out*/
+submission_3pct/
+submission_3pct_backup_predaction/
+
+# ⚠️ 아래 CSV/XLSX 는 patient_id·검사일(PHI) 포함.
+#    일부는 이미 git 에 추적 중이므로 gitignore 만으론 안 빠진다 →
+#    다음 단계에서 `git rm --cached <파일>` + history purge 필요.
+ml_final_*.csv
+ml_dataset.csv
+sfa_thresholds*.csv
+sfa_review_*.csv
+sfa_review_master*.xlsx
+oct_values.csv
+oct_*.csv
+rnfl_detail*.csv
+clockhours*.csv
+vf_results*.csv
+vf_index.csv
+vf_page_types.csv
+dw_images_index.csv
+zeiss_*.csv
+hfa_oldmachine_*.csv
+cohort_*.csv
+full_pairing.csv
+hd_vf_pairs.csv
+_pseudonym_map.csv
+_chartreview_list_*.csv
+vf_reliability.csv
+cohort_final_D*.csv
+kcc/dataset_final.csv
+kcc/gca_vf_matched.csv
+kcc/vf_oct_180d_final.csv
+
+# ============================================================================
+#  results registry — 숫자만(비 PHI). 추적 대상이므로 무시하지 않음.
+#  단, 대용량 그림 산출물은 제외.
+# ============================================================================
+results/**/*.png
+paper/figures/
+
+# PHI 정비 작업 백업 (원본 그대로 보관, 절대 커밋 금지)
+phi_remediation_backup/
+public_release/
+*.zip
+
+# ============================================================================
+#  환경 / 캐시 / OS
+# ============================================================================
+.venv/
+venv/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ipynb_checkpoints/
+external/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+_tmp_*.json
+_handoff_crops/
+
+# ── 신규 VF 배치 작업 산출물 (2026-08-17) ──────────────────────────
+# 논문 파이프라인 밖의 일회성 작업이고, 환자 식별정보 매핑
+# (data/_new_vf_dob_pid_map.csv)을 참조한다. 공개 대상 아님.
+/build_new_vf_full_report.py
+/stage_new_vf_pdfs.py
+
+# ── results 중 식별자·날짜 포함본 ──────────────────────────────
+# .gitignore 방침상 results/ 는 추적 대상이지만, 아래 두 파일은 원본 검사일
+# (및 환자ID)을 담고 있어 제외한다. 원고 §Methods 의 "원본 식별자·검사일을
+# 로그 출력에 남기지 않았다"는 서술과 배치되기 때문.
+# 집계본인 results/phase3_extraction_accuracy.json 에는 전파되지 않음(실측 0건).
+results/ocr_failure_taxonomy.json
+results/step2_date_remap.json
+
+# ── 재식별 대응표 (2026-08-17) ──────────────────────────────────
+# ml_dataset.csv 의 경로 열(sfa_dir/gca_dir/rnfl_dir/*_thickness)은
+# cirrus_out/by_case/<실제ID>__<로마자 실명>__<실제ID>_<생년월일>_<검사일>/ 를
+# 가리켜, 같은 행의 가명 patient_id 와 나란히 놓이면 재식별 대응표가 된다
+# (173명 중 172명 복원 가능). 비식별 열 6개는 ml_final_*.csv 에 그대로 있으므로
+# 추적에서 제외해도 공개본이 잃는 정보는 없다. 로컬 파일은 유지 — 소비 스크립트 8개가 그대로 동작.
+ml_dataset.csv
+
+# ── 미추적 작업 산출물 중 PHI 보유분 (전수검사) ────────────────────
+# `git add .` 한 번이면 그대로 커밋되는 위치에 있었다. 로그·중간 백업·
+# 배치 작업 산출물로, 공개 대상이 아니면서 환자ID·검사일을 담고 있다.
+/_log_*.txt
+/_run_*.sh
+/_parallel_*.json
+/_backup_*.csv
+/_sample_serials.json
+/_inventory_check.txt
+/_vf_paths.txt
+/_gcl_diag_output.txt
+/_gcl_none_diagnosis.py
+/_vf_reliability_step1_fl_breakdown.py
+
+# 신규 VF 배치 요청·매칭 산출물 (환자ID 최대 494개)
+/vf_request_*.csv
+/vf_new_batch_manifest.csv
+/_new_vf_*.csv
+/dataset_new_batch.csv
+/ml_dataset_new_batch.csv
+/gca_manual_fill.csv
+/rnfl_manual_fill.csv
+
+kcc/progression_results.csv
+
+# ── 원본 환자 이미지 / 디버그 크롭 (L0 파일명 층에서 적출) ─────────
+# 파일명 자체가 환자ID·검사일을 담고 있고, 내용은 환자 리포트 이미지다.
+/extracted_new/
+/oct_new_batch/
+/vf_new_batch/
+/_crop_*.png
+/_diag_*.png
+/_debug_*.png
+/_masked_*.png
+/_leakcheck*.png
+/_footer_check*.png
+/_header_check*.png
+/_dob_zoom*.png
+/_tmp_quad_*.png
+paper/manuscript/figures/_source_crops/
+
+# 스프레드시트는 이 프로젝트에서 전부 데이터 추출물이다.
+# kcc/sfa_review_A.xlsx 안에 식별자와 날짜 열이 들어 있었다(L1b 층에서 적출).
+*.xlsx
+
+# ============================================================================
+#  공개 저장소 큐레이션 (2026-08-19)
+#  논문 재현에 쓰이지 않는 작업물을 제외한다. 재현 사슬에 속한 것만 예외로 남김.
+# ============================================================================
+
+# 루트의 _ 접두 작업 산출물 — 기본 제외
+/_*.py
+/_*.txt
+/_*.json
+/_*.log
+
+# 예외: 재현 사슬. cohort_final_D.csv(187 정의)와 원고 표·수치의 유일한 출처들.
+# src/hvf/cohort.py 가 cohort_final_D.csv 에 의존하므로 _cohort_D_freeze.py 는
+# 빠지면 안 된다 — 빠지면 §2.7 재현성 주장이 성립하지 않는다.
+!/_cohort_D_freeze.py
+!/_cohort_D_final_tables.py
+!/_cohort_D_final_tables_OUTPUT.txt
+!/_cohort_D_manuscript_tables.py
+!/_cohort_D_manuscript_tables.txt
+!/_cohort_triple_comparison.py
+!/_manuscript_numbers_freeze.py
+!/_manuscript_numbers_freeze.txt
+!/_regen_fig2_sf_heatmap_187.py
+!/_regen_phase5_1_4_187.py
+!/_regen_phase5_3_sita_187.py
+!/_topographic_187.py
+!/_fig2_matrix_check.py
+!/_vf_gt_vs_auto_comparison.py
+!/_vf_reliability_evidence_based_C.py
+!/_vf_reliability_cohortC_result.json
+!/_vf_reliability_step0_full.py
+!/_vf_reliability_step0_result.json
+!/_vf_reliability_sensitivity.py
+
+# 이전 KCC 논문 작업물 — 이 원고의 파이프라인이 아니고 그림이 전부 한글이다.
+/kcc/
+
+# 원고 초안·집필 참고자료 (회의 준비, 문체 가이드 등)
+/paper/drafts/
+/paper/논문 작성 요령.pdf
+/paper/2026_kcc_*.docx
+
+# 루트의 내부 작업 메모 — 재현에 쓰이지 않는다.
+/final_check.md
+/final_check2.md
+/deidentification_plan.md
+/manuscript_changes.md
+/fig1_diagnosis.md
+/permutation_results.md
+/references_year.md
+
+# 원고 자체는 이 저장소의 범위가 아니다 (README 참조).
+paper/manuscript/

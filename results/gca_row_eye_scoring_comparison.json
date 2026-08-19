@@ -1,0 +1,85 @@
+{
+  "generated": "2026-07-16",
+  "title": "GCA 6섹터 GT 채점 규약(row-eye 조건부) 도입 전/후 정확도 비교",
+  "background": "2026-07-16 발견: oct_tabular_90d.csv의 os_s_{sup_t,sup_n,inf_t,inf_n} 컬럼이 행의 eye(OD/OS)에 따라 다른 컨벤션으로 기록됨(같은 리포트인데 값이 다름). 이를 모르고 단순 컬럼 대조하면 두 컨벤션이 섞여 정확도가 실제보다 낮게 나옴.",
+  "same_data_same_code_different_scoring_only": true,
+  "input_files": {
+    "raw_extraction": "data/oct_values_raw.csv",
+    "ground_truth": "oct_tabular_90d.csv"
+  },
+  "scoring_script": "scripts/verify_gca_os_mirroring.py",
+  "before_naive_scoring": {
+    "method": "row-eye 조건 무시, os_s_* 컬럼을 GT와 그대로 1:1 대조",
+    "mean_exact_match_pct": 43.7
+  },
+  "after_row_eye_conditional_scoring": {
+    "method": "OD행: os_s_{sup_t,sup_n,inf_t,inf_n}을 raw 그대로 대조. OS행: 같은 4개 컬럼을 sup_t<->sup_n, inf_t<->inf_n 스왑 후 대조. (자동판별: convention_detected 필드 참고)",
+    "mean_exact_match_pct_swap_cols_only": 83.1,
+    "mean_exact_match_pct_all_6_sectors": 73.8,
+    "convention_detected": "raw=eye-dependent(mirrored) -> OD행 as-is/OS행 swap"
+  },
+  "delta_pct": 30.1,
+  "per_column_after": {
+    "od_s_sup": {
+      "n": 237,
+      "exact": 213,
+      "pct": 89.9
+    },
+    "od_s_sup_t": {
+      "n": 266,
+      "exact": 208,
+      "pct": 78.2
+    },
+    "od_s_inf_t": {
+      "n": 265,
+      "exact": 142,
+      "pct": 53.6
+    },
+    "od_s_inf": {
+      "n": 182,
+      "exact": 58,
+      "pct": 31.9
+    },
+    "od_s_inf_n": {
+      "n": 261,
+      "exact": 189,
+      "pct": 72.4
+    },
+    "od_s_sup_n": {
+      "n": 266,
+      "exact": 214,
+      "pct": 80.5
+    },
+    "os_s_sup": {
+      "n": 264,
+      "exact": 241,
+      "pct": 91.3
+    },
+    "os_s_sup_t": {
+      "n": 266,
+      "exact": 249,
+      "pct": 93.6
+    },
+    "os_s_inf_t": {
+      "n": 262,
+      "exact": 190,
+      "pct": 72.5
+    },
+    "os_s_inf": {
+      "n": 174,
+      "exact": 51,
+      "pct": 29.3
+    },
+    "os_s_inf_n": {
+      "n": 262,
+      "exact": 189,
+      "pct": 72.1
+    },
+    "os_s_sup_n": {
+      "n": 266,
+      "exact": 250,
+      "pct": 94.0
+    }
+  },
+  "note": "이 비교는 이전(유실된) \"5.4%->82.7%\" flagship 서술을 대체한다. 차이는 코드 변경이 아니라 GT 채점 규약(row-eye 조건부 스왑) 도입에서만 발생함 — 동일 raw, 동일 추출 코드, 채점 로직만 다름."
+}

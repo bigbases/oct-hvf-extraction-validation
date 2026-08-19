@@ -1,0 +1,104 @@
+{
+  "generated": "2026-08-15",
+  "cohort": "187 analytic (cohort_final_D.csv)",
+  "n_gt": 187,
+  "n_auto": 187,
+  "note": "reference = manual-review (analysis_master.csv); automated = oct_values_raw.csv + rnfl_detail_raw.csv. Delta-beta CI = patient-clustered paired bootstrap (B=400).",
+  "metrics": {
+    "rnfl_q_i": {
+      "reference_beta": 0.5904,
+      "reference_ci": [
+        0.4602,
+        0.7205
+      ],
+      "automated_beta": 0.547,
+      "automated_ci": [
+        0.4181,
+        0.6759
+      ],
+      "delta_beta": -0.0434,
+      "delta_boot_ci": [
+        -0.1137,
+        0.0135
+      ],
+      "delta_boot_ci_includes_zero": true,
+      "n_boot": 400
+    },
+    "gcl_avg": {
+      "reference_beta": 0.5723,
+      "reference_ci": [
+        0.4413,
+        0.7033
+      ],
+      "automated_beta": 0.6257,
+      "automated_ci": [
+        0.4996,
+        0.7517
+      ],
+      "delta_beta": 0.0534,
+      "delta_boot_ci": [
+        -0.012,
+        0.1772
+      ],
+      "delta_boot_ci_includes_zero": true,
+      "n_boot": 400
+    },
+    "rnfl_quad_mean": {
+      "reference_beta": 0.5463,
+      "reference_ci": [
+        0.4087,
+        0.684
+      ],
+      "automated_beta": 0.5214,
+      "automated_ci": [
+        0.3916,
+        0.6512
+      ],
+      "delta_beta": -0.0249,
+      "delta_boot_ci": [
+        -0.1253,
+        0.0631
+      ],
+      "delta_boot_ci_includes_zero": true,
+      "n_boot": 400
+    },
+    "rnfl_ch_mean": {
+      "reference_beta": 0.5455,
+      "reference_ci": [
+        0.4087,
+        0.6823
+      ],
+      "automated_beta": 0.5099,
+      "automated_ci": [
+        0.3765,
+        0.6434
+      ],
+      "delta_beta": -0.0356,
+      "delta_boot_ci": [
+        -0.1229,
+        0.0395
+      ],
+      "delta_boot_ci_includes_zero": true,
+      "n_boot": 400
+    },
+    "gcl_min": {
+      "reference_beta": 0.5362,
+      "reference_ci": [
+        0.4139,
+        0.6585
+      ],
+      "automated_beta": 0.5302,
+      "automated_ci": [
+        0.4041,
+        0.6563
+      ],
+      "delta_beta": -0.006,
+      "delta_boot_ci": [
+        -0.129,
+        0.1233
+      ],
+      "delta_boot_ci_includes_zero": true,
+      "n_boot": 400
+    }
+  }
+}

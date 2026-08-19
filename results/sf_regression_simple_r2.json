@@ -1,0 +1,25 @@
+{
+  "key": "sf_regression_simple_r2",
+  "value": {
+    "r2": {
+      "OD": 0.174,
+      "OS": 0.539,
+      "ALL": 0.295
+    }
+  },
+  "script": "scripts/audit_reproduce.py",
+  "inputs": [
+    {
+      "id": "kcc/gca_vf_matched.csv",
+      "sha256": "aa4a75bba04464120e2b5a9bdfb1a626f122fecc5588358ba634e736dbca77fd",
+      "bytes": 7116
+    }
+  ],
+  "created_utc": "2026-07-01T15:22:29+00:00",
+  "git_commit": "079f224c9e8c6c76a6d0d2c9bba1caab018e4ae4",
+  "python": "3.14.3",
+  "extra": {
+    "model": "MS ~ thickness (단순)",
+    "impl": "sklearn LinearRegression.score"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "generated": "2026-07-05",
+  "source": "phase5_2_sector_correlations.json",
+  "gcl_cross_matrix": {
+    "summary": {
+      "diag_mean_rho": 0.3907,
+      "offdiag_mean_rho": 0.3704,
+      "delta_rho": 0.0204,
+      "rows_where_diag_is_max": "2/6",
+      "mean_diag_minus_max_off": -0.0068
+    },
+    "per_sector": {
+      "sup_t": {
+        "diag_rho": 0.4253,
+        "max_off_rho": 0.422,
+        "max_off_sector": "sup_n",
+        "diag_minus_max_off": 0.0033,
+        "diag_rank": 1,
+        "diag_is_max": true
+      },
+      "sup": {
+        "diag_rho": 0.3713,
+        "max_off_rho": 0.3594,
+        "max_off_sector": "inf",
+        "diag_minus_max_off": 0.0119,
+        "diag_rank": 1,
+        "diag_is_max": true
+      },
+      "sup_n": {
+        "diag_rho": 0.3258,
+        "max_off_rho": 0.3584,
+        "max_off_sector": "sup",
+        "diag_minus_max_off": -0.0326,
+        "diag_rank": 4,
+        "diag_is_max": false
+      },
+      "inf_n": {
+        "diag_rho": 0.3933,
+        "max_off_rho": 0.4066,
+        "max_off_sector": "inf",
+        "diag_minus_max_off": -0.0133,
+        "diag_rank": 3,
+        "diag_is_max": false
+      },
+      "inf": {
+        "diag_rho": 0.4202,
+        "max_off_rho": 0.4249,
+        "max_off_sector": "inf_t",
+        "diag_minus_max_off": -0.0047,
+        "diag_rank": 3,
+        "diag_is_max": false
+      },
+      "inf_t": {
+        "diag_rho": 0.4084,
+        "max_off_rho": 0.4138,
+        "max_off_sector": "inf_n",
+        "diag_minus_max_off": -0.0054,
+        "diag_rank": 2,
+        "diag_is_max": false
+      }
+    }
+  },
+  "rnfl_vs_gcl": {
+    "rnfl_hemifield_beta": {
+      "q_i_sup_vf": 0.5547,
+      "q_s_inf_vf": 0.5289,
+      "q_t_central_vf": 0.0978,
+      "q_n_periph_vf": 0.1185
+    },
+    "gcl_global_avg_beta": 0.48,
+    "gcl_sector_max_beta": 0.441,
+    "gcl_sector_mean_beta": 0.36,
+    "strength_ranking": [
+      "rnfl_q_i (beta=0.555)",
+      "rnfl_q_s (beta=0.529)",
+      "gcl_avg  (beta=0.480)",
+      "gcl_sup_t sector (beta=0.441)",
+      "gcl_sector_mean (beta=~0.360)"
+    ]
+  },
+  "interpretation": {
+    "gcl_spatial_specificity": "Essentially absent. Only 2/6 diagonal entries are row maxima (sup_t, sup). Mean diagonal-minus-max-off = -0.007. The global mean Delta_rho = +0.020 is driven by these 2 sectors only; 4/6 sectors have off-diagonal max.",
+    "gcl_biological_explanation": "GCL/IPL is distributed broadly across all macular sectors with overlapping retinal ganglion cell dendritic fields. The macular GCL does not have sharp topographic boundaries matching the Garway-Heath disc-VF mapping. Global avg is therefore a more efficient GCL predictor than any sector.",
+    "rnfl_spatial_specificity": "Strong. q_i/q_s (hemifield) >> q_t/q_n (0.540 vs 0.164). RNFL fibers follow strict arcuate trajectories → disc sectors map cleanly to VF hemifields.",
+    "paper_contribution": "GCL average is the best GCL predictor (beta=0.480, global loss marker). RNFL q_i is the strongest overall (beta=0.555, hemifield-specific). GCL sectors add no diagnostic advantage over GCL average for VF prediction. RNFL hemifield split is the dominant spatial axis in glaucomatous structure-function loss.",
+    "problematic_sectors": {
+      "gcl_sup_n": "diag rank 4/6, off_max=vf_sup (Δ=-0.033). Inferotemporal VF worse than inferior central.",
+      "gcl_inf_n": "diag rank 3/6, off_max=vf_inf (Δ=-0.013). Superotemporal GCL better predicts inferior VF.",
+      "gcl_inf": "diag rank 3/6, tied with vf_inf_t (Δ=-0.005). Essentially no specificity."
+    }
+  }
+}

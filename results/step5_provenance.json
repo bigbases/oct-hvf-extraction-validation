@@ -1,0 +1,57 @@
+{
+  "generated": "2026-07-23",
+  "output": "data/analysis_master.csv",
+  "sha256": "ad953738e71a10bc5651ff32b4b39230e2f2f8402b4b3df35c4c14c2b0794738",
+  "n_rows": 275,
+  "n_cols": 101,
+  "col_groups": {
+    "meta": [
+      "patient_id",
+      "eye",
+      "vf_date",
+      "oct_date",
+      "gap_days"
+    ],
+    "demo": [
+      "age_at_oct",
+      "sex"
+    ],
+    "vf": "vf_mean, n_absolute_scotoma, p1..p54 (56 cols)",
+    "oct": "GCL avg/min/6sec x2, RNFL q3+h12, SS x4 (36 cols)",
+    "flag": [
+      "covariate_set",
+      "severity_tertile"
+    ]
+  },
+  "covariate_set": {
+    "full": 180,
+    "age": 79,
+    "none": 16
+  },
+  "severity_tertile": {
+    "method": "precise 33rd/67th percentile of vf_mean (numpy default linear interpolation, unrounded); mild = MS > q67, moderate = q33 < MS <= q67, severe = MS <= q33",
+    "q33_dB": 21.557,
+    "q67_dB": 27.102,
+    "distribution": {
+      "severe": 91,
+      "mild": 91,
+      "moderate": 93
+    }
+  },
+  "analysis_tiers": {
+    "primary": "276 (모든 눈, covariate 없음)",
+    "age_adjusted": "259 (covariate_set in full/age)",
+    "age_sex_adjusted": "180 (covariate_set == full)"
+  },
+  "join": {
+    "key_vf_oct": "(patient_id, eye) — 1:1, OCT 미매칭 0",
+    "key_demo": "patient_id — LEFT JOIN, 결측 허용",
+    "age_formula": "age_at_oct = (oct_date - dob).days / 365.25, 소수점 1자리",
+    "sex_note": "Male/Female만; Unknown/empty → empty (Korean OCR 구조적 한계)"
+  },
+  "source_sha256": {
+    "vf_results": "317a589cf5bf1d716fbbbc3fe192cb90c430c582b762b85bc36c3ca35b729e77",
+    "oct_canonical": "2bb68402cc6649c25320d9ca5b4130ae597f7d56957b02df3f2ad169b440da5e",
+    "demographics": "cd063bb83d581daa94d3569055b673bae6540397caee955c34ae1fa8e8e51e87"
+  }
+}

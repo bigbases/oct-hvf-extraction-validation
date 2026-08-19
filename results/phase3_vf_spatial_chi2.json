@@ -1,0 +1,44 @@
+{
+  "generated": "2026-08-15",
+  "input_sha256": {
+    "sfa_thresholds_raw": "fcf825036525e3e06956a077595be1b3ffb02e879be55c8a3d765dc31ae02cb4",
+    "sfa_review_master_fixed": "e802cbd95f4ad736332b758ee5b589c9729ed5ffbf04c0e98c97a231e9397fa4"
+  },
+  "design": {
+    "pool": "324-eye validation pool (offset eyes: 0)",
+    "mismatch_definition": "abs(raw - gt) != 0 among pairs valid in both",
+    "meridian_rows": "HVF_COORDS rows (3, 4) = p19..p36 (18 points)",
+    "cross_check": "per-point stats verified identical to sealed registry (54/54)"
+  },
+  "counts": {
+    "meridian_adjacent": {
+      "valid": 5818,
+      "mismatch": 146,
+      "rate_pct": 2.51
+    },
+    "elsewhere": {
+      "valid": 11659,
+      "mismatch": 39,
+      "rate_pct": 0.33
+    },
+    "total": {
+      "valid": 17477,
+      "mismatch": 185
+    }
+  },
+  "chi2_yates": {
+    "statistic": 173.2298,
+    "dof": 1,
+    "p": 1.458095653087061e-39
+  },
+  "chi2_uncorrected": {
+    "statistic": 175.3003,
+    "dof": 1,
+    "p": 5.147886838502375e-40
+  },
+  "fisher_exact": {
+    "odds_ratio": 7.6693,
+    "p": 1.976217588354181e-37
+  },
+  "min_expected_cell": 61.59
+}

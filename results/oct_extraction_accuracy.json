@@ -1,0 +1,440 @@
+{
+  "generated": "2026-07-05",
+  "context": "OCT 자동추출 vs 수동검수(oct_tabular_90d) 정확도 — Phase 3 근거 봉인",
+  "cohort_base": "272눈 (276 코호트 중 oct_tabular_90d 매칭)",
+  "error_taxonomy": {
+    "OS_temporal_nasal_swap": {
+      "type": "컬럼 레이블 오류",
+      "source": "oct_values.csv (ocr_oct_values.py)",
+      "description": "ocr_oct_values.py가 OS GCA 이미지를 OD 좌표계로 읽어 temporal↔nasal 섹터 레이블 전체 뒤바뀜",
+      "affected_columns": [
+        "os_s_sup_t",
+        "os_s_inf_t",
+        "os_s_inf_n",
+        "os_s_sup_n"
+      ],
+      "swap_map": {
+        "oct_values[os_s_sup_t]": "actual os_s_sup_n",
+        "oct_values[os_s_inf_t]": "actual os_s_inf_n",
+        "oct_values[os_s_inf_n]": "actual os_s_inf_t",
+        "oct_values[os_s_sup_n]": "actual os_s_sup_t"
+      },
+      "n_affected_eyes": 125,
+      "exact_match_after_swap": "100% (ov[os_s_sup_t]==tab[os_s_sup_n] 135/135)",
+      "detection_method": "T-N 교환 후 100% 일치 확인",
+      "impact": "5-2 structure-function 섹터 공간 매핑 전체 오류 유발"
+    },
+    "inferior_sector_collapse": {
+      "type": "OCR 대량 실패",
+      "source": "oct_values_raw.csv (3-stage OCR)",
+      "description": "3-stage OCR이 inferior 섹터(중앙 하방) 이미지 영역 파싱 실패 → None 대량 발생",
+      "affected_columns": [
+        "od_s_inf",
+        "os_s_inf"
+      ],
+      "none_rate_auto": {
+        "od_s_inf": "91/272 (33%)",
+        "os_s_inf": "97/272 (36%)"
+      },
+      "none_rate_manual": {
+        "od_s_inf": "9/272 (3%)",
+        "os_s_inf": "7/272 (3%)"
+      },
+      "exact_match_pct_where_both_valid": {
+        "od_s_inf": 32.0,
+        "os_s_inf": 29.0
+      },
+      "mae_um_where_both_valid": {
+        "od_s_inf": 20.3,
+        "os_s_inf": 22.2
+      },
+      "impact": "inferior 섹터 상관 분석 불가, 섹터 패턴 왜곡"
+    },
+    "rnfl_qt_qn_systematic_error": {
+      "type": "OCR 체계적 오류",
+      "source": "rnfl_detail.csv (구 파이프라인)",
+      "description": "q_t/q_n 약 절반 오류, q_i 100% None(실제값 있음)",
+      "affected_columns": [
+        "rnfl_q_t",
+        "rnfl_q_n",
+        "rnfl_q_i"
+      ],
+      "exact_match_pct": {
+        "rnfl_q_t": 50.0,
+        "rnfl_q_n": 46.0
+      },
+      "mae_um": {
+        "rnfl_q_t": 7.65,
+        "rnfl_q_n": 9.16
+      },
+      "rnfl_q_i_status": "rnfl_detail 전체 None (추출 완전 실패). 수동검수본에는 정상값 있음",
+      "rnfl_q_s_status": "98% 일치 (정상)",
+      "impact": "RNFL 사분면 분석 신뢰도 저하, q_i 제외 처리 오류"
+    }
+  },
+  "gcl_accuracy": {
+    "source_auto": "oct_values_raw.csv (3-stage OCR, parse_gcl_table)",
+    "source_manual": "oct_tabular_90d.csv (수동검수본)",
+    "note": "oct_values.csv의 OS T-N swap은 별도 taxonomy로 분류. oct_values_raw의 주된 문제는 inferior 붕괴.",
+    "columns": {
+      "avg_gcl_od": {
+        "n_base": 272,
+        "n_both_valid": 256,
+        "exact_match": 236,
+        "exact_match_pct": 92.2,
+        "mae_um": 1.06,
+        "bias_auto_minus_manual": 0.28,
+        "big_diff_n_gt5um": 18,
+        "none_auto": 14,
+        "none_manual": 8
+      },
+      "avg_gcl_os": {
+        "n_base": 272,
+        "n_both_valid": 254,
+        "exact_match": 216,
+        "exact_match_pct": 85.0,
+        "mae_um": 1.86,
+        "bias_auto_minus_manual": -1.61,
+        "big_diff_n_gt5um": 18,
+        "none_auto": 18,
+        "none_manual": 7
+      },
+      "min_gcl_od": {
+        "n_base": 272,
+        "n_both_valid": 262,
+        "exact_match": 238,
+        "exact_match_pct": 90.8,
+        "mae_um": 0.68,
+        "bias_auto_minus_manual": -0.06,
+        "big_diff_n_gt5um": 3,
+        "none_auto": 9,
+        "none_manual": 9
+      },
+      "min_gcl_os": {
+        "n_base": 272,
+        "n_both_valid": 253,
+        "exact_match": 220,
+        "exact_match_pct": 87.0,
+        "mae_um": 1.22,
+        "bias_auto_minus_manual": -0.85,
+        "big_diff_n_gt5um": 18,
+        "none_auto": 19,
+        "none_manual": 9
+      },
+      "od_s_sup": {
+        "n_base": 272,
+        "n_both_valid": 235,
+        "exact_match": 210,
+        "exact_match_pct": 89.4,
+        "mae_um": 2.13,
+        "bias_auto_minus_manual": 1.61,
+        "big_diff_n_gt5um": 20,
+        "none_auto": 35,
+        "none_manual": 8
+      },
+      "od_s_sup_t": {
+        "n_base": 272,
+        "n_both_valid": 264,
+        "exact_match": 208,
+        "exact_match_pct": 78.8,
+        "mae_um": 1.36,
+        "bias_auto_minus_manual": 0.12,
+        "big_diff_n_gt5um": 13,
+        "none_auto": 6,
+        "none_manual": 8
+      },
+      "od_s_inf_t": {
+        "n_base": 272,
+        "n_both_valid": 263,
+        "exact_match": 145,
+        "exact_match_pct": 55.1,
+        "mae_um": 6.65,
+        "bias_auto_minus_manual": 6.44,
+        "big_diff_n_gt5um": 72,
+        "none_auto": 7,
+        "none_manual": 9
+      },
+      "od_s_inf": {
+        "n_base": 272,
+        "n_both_valid": 180,
+        "exact_match": 58,
+        "exact_match_pct": 32.2,
+        "mae_um": 20.28,
+        "bias_auto_minus_manual": -3.88,
+        "big_diff_n_gt5um": 111,
+        "none_auto": 91,
+        "none_manual": 9
+      },
+      "od_s_inf_n": {
+        "n_base": 272,
+        "n_both_valid": 261,
+        "exact_match": 189,
+        "exact_match_pct": 72.4,
+        "mae_um": 4.43,
+        "bias_auto_minus_manual": 3.94,
+        "big_diff_n_gt5um": 45,
+        "none_auto": 9,
+        "none_manual": 8
+      },
+      "od_s_sup_n": {
+        "n_base": 272,
+        "n_both_valid": 264,
+        "exact_match": 212,
+        "exact_match_pct": 80.3,
+        "mae_um": 3.92,
+        "bias_auto_minus_manual": -1.0,
+        "big_diff_n_gt5um": 37,
+        "none_auto": 6,
+        "none_manual": 8
+      },
+      "os_s_sup": {
+        "n_base": 272,
+        "n_both_valid": 263,
+        "exact_match": 240,
+        "exact_match_pct": 91.3,
+        "mae_um": 1.83,
+        "bias_auto_minus_manual": 1.83,
+        "big_diff_n_gt5um": 23,
+        "none_auto": 9,
+        "none_manual": 7
+      },
+      "os_s_sup_t": {
+        "n_base": 272,
+        "n_both_valid": 265,
+        "exact_match": 138,
+        "exact_match_pct": 52.1,
+        "mae_um": 4.13,
+        "bias_auto_minus_manual": 0.65,
+        "big_diff_n_gt5um": 68,
+        "none_auto": 7,
+        "none_manual": 7
+      },
+      "os_s_inf_t": {
+        "n_base": 272,
+        "n_both_valid": 259,
+        "exact_match": 93,
+        "exact_match_pct": 35.9,
+        "mae_um": 8.19,
+        "bias_auto_minus_manual": 3.16,
+        "big_diff_n_gt5um": 96,
+        "none_auto": 13,
+        "none_manual": 7
+      },
+      "os_s_inf": {
+        "n_base": 272,
+        "n_both_valid": 175,
+        "exact_match": 51,
+        "exact_match_pct": 29.1,
+        "mae_um": 22.17,
+        "bias_auto_minus_manual": 4.41,
+        "big_diff_n_gt5um": 106,
+        "none_auto": 97,
+        "none_manual": 7
+      },
+      "os_s_inf_n": {
+        "n_base": 272,
+        "n_both_valid": 263,
+        "exact_match": 106,
+        "exact_match_pct": 40.3,
+        "mae_um": 7.51,
+        "bias_auto_minus_manual": 4.72,
+        "big_diff_n_gt5um": 91,
+        "none_auto": 9,
+        "none_manual": 7
+      },
+      "os_s_sup_n": {
+        "n_base": 272,
+        "n_both_valid": 265,
+        "exact_match": 122,
+        "exact_match_pct": 46.0,
+        "mae_um": 4.93,
+        "bias_auto_minus_manual": -0.33,
+        "big_diff_n_gt5um": 80,
+        "none_auto": 7,
+        "none_manual": 7
+      }
+    }
+  },
+  "rnfl_accuracy": {
+    "source_auto": "rnfl_detail.csv (구 파이프라인)",
+    "source_manual": "oct_tabular_90d.csv (수동검수본)",
+    "columns": {
+      "rnfl_q_s": {
+        "n_base": 272,
+        "n_both_valid": 269,
+        "exact_match": 264,
+        "exact_match_pct": 98.1,
+        "mae_um": 0.86,
+        "bias_auto_minus_manual": -0.86,
+        "big_diff_n_gt5um": 5,
+        "none_auto": 3,
+        "none_manual": 1
+      },
+      "rnfl_q_t": {
+        "n_base": 272,
+        "n_both_valid": 270,
+        "exact_match": 136,
+        "exact_match_pct": 50.4,
+        "mae_um": 7.65,
+        "bias_auto_minus_manual": -3.21,
+        "big_diff_n_gt5um": 107,
+        "none_auto": 2,
+        "none_manual": 0
+      },
+      "rnfl_q_i": {
+        "n_base": 272,
+        "n_both_valid": 0,
+        "exact_match": 0,
+        "exact_match_pct": null,
+        "mae_um": null,
+        "bias_auto_minus_manual": null,
+        "big_diff_n_gt5um": 0,
+        "none_auto": 272,
+        "none_manual": 0
+      },
+      "rnfl_q_n": {
+        "n_base": 272,
+        "n_both_valid": 265,
+        "exact_match": 123,
+        "exact_match_pct": 46.4,
+        "mae_um": 9.16,
+        "bias_auto_minus_manual": 0.13,
+        "big_diff_n_gt5um": 113,
+        "none_auto": 7,
+        "none_manual": 0
+      },
+      "rnfl_h01": {
+        "n_base": 272,
+        "n_both_valid": 257,
+        "exact_match": 124,
+        "exact_match_pct": 48.2,
+        "mae_um": 12.69,
+        "bias_auto_minus_manual": 2.39,
+        "big_diff_n_gt5um": 112,
+        "none_auto": 15,
+        "none_manual": 1
+      },
+      "rnfl_h02": {
+        "n_base": 272,
+        "n_both_valid": 245,
+        "exact_match": 118,
+        "exact_match_pct": 48.2,
+        "mae_um": 12.18,
+        "bias_auto_minus_manual": -5.5,
+        "big_diff_n_gt5um": 112,
+        "none_auto": 27,
+        "none_manual": 0
+      },
+      "rnfl_h03": {
+        "n_base": 272,
+        "n_both_valid": 206,
+        "exact_match": 79,
+        "exact_match_pct": 38.3,
+        "mae_um": 9.84,
+        "bias_auto_minus_manual": -6.53,
+        "big_diff_n_gt5um": 100,
+        "none_auto": 66,
+        "none_manual": 0
+      },
+      "rnfl_h04": {
+        "n_base": 272,
+        "n_both_valid": 235,
+        "exact_match": 117,
+        "exact_match_pct": 49.8,
+        "mae_um": 8.14,
+        "bias_auto_minus_manual": -0.6,
+        "big_diff_n_gt5um": 90,
+        "none_auto": 37,
+        "none_manual": 0
+      },
+      "rnfl_h05": {
+        "n_base": 272,
+        "n_both_valid": 260,
+        "exact_match": 126,
+        "exact_match_pct": 48.5,
+        "mae_um": 16.7,
+        "bias_auto_minus_manual": 11.0,
+        "big_diff_n_gt5um": 117,
+        "none_auto": 12,
+        "none_manual": 0
+      },
+      "rnfl_h06": {
+        "n_base": 272,
+        "n_both_valid": 268,
+        "exact_match": 266,
+        "exact_match_pct": 99.3,
+        "mae_um": 0.04,
+        "bias_auto_minus_manual": -0.04,
+        "big_diff_n_gt5um": 2,
+        "none_auto": 4,
+        "none_manual": 0
+      },
+      "rnfl_h07": {
+        "n_base": 272,
+        "n_both_valid": 256,
+        "exact_match": 130,
+        "exact_match_pct": 50.8,
+        "mae_um": 16.5,
+        "bias_auto_minus_manual": -12.18,
+        "big_diff_n_gt5um": 110,
+        "none_auto": 16,
+        "none_manual": 0
+      },
+      "rnfl_h08": {
+        "n_base": 272,
+        "n_both_valid": 236,
+        "exact_match": 111,
+        "exact_match_pct": 47.0,
+        "mae_um": 8.55,
+        "bias_auto_minus_manual": -1.47,
+        "big_diff_n_gt5um": 96,
+        "none_auto": 36,
+        "none_manual": 0
+      },
+      "rnfl_h09": {
+        "n_base": 272,
+        "n_both_valid": 242,
+        "exact_match": 123,
+        "exact_match_pct": 50.8,
+        "mae_um": 7.65,
+        "bias_auto_minus_manual": 2.46,
+        "big_diff_n_gt5um": 94,
+        "none_auto": 30,
+        "none_manual": 0
+      },
+      "rnfl_h10": {
+        "n_base": 272,
+        "n_both_valid": 245,
+        "exact_match": 121,
+        "exact_match_pct": 49.4,
+        "mae_um": 10.53,
+        "bias_auto_minus_manual": -0.34,
+        "big_diff_n_gt5um": 106,
+        "none_auto": 27,
+        "none_manual": 0
+      },
+      "rnfl_h11": {
+        "n_base": 272,
+        "n_both_valid": 263,
+        "exact_match": 135,
+        "exact_match_pct": 51.3,
+        "mae_um": 12.35,
+        "bias_auto_minus_manual": -5.04,
+        "big_diff_n_gt5um": 106,
+        "none_auto": 9,
+        "none_manual": 1
+      },
+      "rnfl_h12": {
+        "n_base": 272,
+        "n_both_valid": 266,
+        "exact_match": 46,
+        "exact_match_pct": 17.3,
+        "mae_um": 15.38,
+        "bias_auto_minus_manual": -2.94,
+        "big_diff_n_gt5um": 185,
+        "none_auto": 4,
+        "none_manual": 2
+      }
+    }
+  }
+}

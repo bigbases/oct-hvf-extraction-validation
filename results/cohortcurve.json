@@ -1,0 +1,38 @@
+{
+  "generated": "2026-08-03",
+  "note": "Standardized joint-model beta of rnfl_q_i (adjusted for gcl_avg); comparable across cohort sizes. DeltaAIC scales with N and is not used for cross-cohort strength comparison.",
+  "rows": {
+    "A": {
+      "label": "No reliability filter",
+      "n_eyes": 275,
+      "rnfl_q_i_joint_beta": 0.3772,
+      "gcl_avg_joint_beta": 0.3042,
+      "delta_aic_vs_gcl": 36.19,
+      "delta_aic_vs_rnfl": 22.74
+    },
+    "B": {
+      "label": "Instrument flag (FL33/FP15/FN20/banner/ss)",
+      "n_eyes": 138,
+      "rnfl_q_i_joint_beta": 0.3559,
+      "gcl_avg_joint_beta": 0.4614,
+      "delta_aic_vs_gcl": 12.65,
+      "delta_aic_vs_rnfl": 20.49
+    },
+    "D": {
+      "label": "Evidence-based (FP>15, FN>20, ss)",
+      "n_eyes": 187,
+      "rnfl_q_i_joint_beta": 0.4029,
+      "gcl_avg_joint_beta": 0.3698,
+      "delta_aic_vs_gcl": 24.72,
+      "delta_aic_vs_rnfl": 20.68
+    },
+    "R": {
+      "label": "Relaxed FN (severity-specific)",
+      "n_eyes": 198,
+      "rnfl_q_i_joint_beta": 0.4019,
+      "gcl_avg_joint_beta": 0.3202,
+      "delta_aic_vs_gcl": 26.51,
+      "delta_aic_vs_rnfl": 15.54
+    }
+  }
+}

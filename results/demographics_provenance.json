@@ -1,0 +1,36 @@
+{
+  "generated": "2026-08-04",
+  "output": "data/demographics.csv",
+  "sha256": "cd063bb83d581daa94d3569055b673bae6540397caee955c34ae1fa8e8e51e87",
+  "n_patients": 144,
+  "stats": {
+    "dob_and_sex": 96,
+    "dob_only": 42,
+    "sex_only": 2,
+    "incomplete": 4
+  },
+  "eyes_stats": {
+    "age_sex_adjusted": 182,
+    "age_only_adjusted": 263,
+    "total": 276
+  },
+  "regression": {
+    "n_samples": 10,
+    "dob_match": 7,
+    "note": "OK 환자 10개 샘플 dob OCR vs 기존값 비교"
+  },
+  "method": {
+    "dob": "re.findall 전체 순회 후 1920-2010 필터 (검사날짜 버그 수정)",
+    "sex": "oct_inventory_merged 기존값만 — Korean OCR 불가 (Tesseract kor+eng 한계)"
+  },
+  "dob_recovery": {
+    "dw": {
+      "n": 22,
+      "recovered": 19
+    },
+    "dw+zeiss": {
+      "n": 17,
+      "recovered": 14
+    }
+  }
+}

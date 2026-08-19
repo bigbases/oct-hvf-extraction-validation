@@ -1,0 +1,83 @@
+{
+  "generated": "2026-07-05",
+  "source": "phase5_2_sector_correlations.json + analysis_master.csv",
+  "question": "Is GCL spatial specificity absence due to floor effect or power issue?",
+  "verification_1_floor_effect": {
+    "method": "vf_mean tertile stratification, GCA 6x6 diagonal vs off-diagonal",
+    "cutoffs_dB": {
+      "lower_tertile": 21.6,
+      "upper_tertile": 27.1
+    },
+    "strata": {
+      "mild": {
+        "n": 91,
+        "mean_vf_mean_dB": 29.7,
+        "diag_mean_rho": 0.3,
+        "offdiag_mean_rho": 0.259,
+        "delta_rho": 0.042,
+        "rows_diag_max": "3/6"
+      },
+      "moderate": {
+        "n": 93,
+        "mean_vf_mean_dB": 24.8,
+        "diag_mean_rho": 0.097,
+        "offdiag_mean_rho": 0.1,
+        "delta_rho": -0.003,
+        "rows_diag_max": "1/6"
+      },
+      "severe": {
+        "n": 92,
+        "mean_vf_mean_dB": 12.1,
+        "diag_mean_rho": 0.255,
+        "offdiag_mean_rho": 0.164,
+        "delta_rho": 0.091,
+        "rows_diag_max": "3/6"
+      }
+    },
+    "verdict": "REJECTED",
+    "rationale": "Floor effect would predict delta(severe) < delta(mild). Observed: delta(severe)=+0.091 > delta(mild)=+0.042. Severe patients retain more GCL spatial structure, not less. Moderate (n=93) shows flattest pattern — likely sampling noise at this VF range.",
+    "finding": "Severity-dependent specificity: severe patients show stronger GCL sector specificity (delta=+0.091, 3/6 rows) than mild patients (delta=+0.042, 3/6 rows). This is the opposite of floor effect."
+  },
+  "verification_2_power": {
+    "method": "GCA sector 95% CI width vs RNFL quadrant CI width",
+    "gcl_sector_ci_widths": {
+      "sup_t": 0.196,
+      "sup": 0.206,
+      "sup_n": 0.213,
+      "inf_n": 0.202,
+      "inf": 0.197,
+      "inf_t": 0.199,
+      "mean": 0.202
+    },
+    "rnfl_quad_ci_widths": {
+      "q_i": 0.17,
+      "q_s": 0.182,
+      "q_t": 0.23,
+      "q_n": 0.23
+    },
+    "all_diagonal_vs_offdiag_ci_overlap": true,
+    "verdict": "ADEQUATE POWER — but signal inherently small",
+    "rationale": "GCA CI width (mean 0.202) is only 19% wider than RNFL q_i (0.170), not dramatically different. RNFL detected hemifield difference of rho=0.376 with similar n. GCL sector differences are ~0.02 in rho — even with n=1000 this signal would be near-undetectable. Signal is fundamentally small, not a power issue."
+  },
+  "overall_conclusion": {
+    "verdict": "GCL sectoral specificity absence is biological, not artifactual",
+    "mechanisms": [
+      "GCL/IPL broadly distributed across macular sectors with overlapping RGC dendritic fields",
+      "Garway-Heath boundaries do not map cleanly to GCL anatomical topology",
+      "Global GCL avg (beta=0.480) outperforms any single sector (max beta=0.441)"
+    ],
+    "nuance": "Severity modulates GCL specificity: severe disease shows Δρ=+0.091 (stronger sector structure than mild Δρ=+0.042). This may reflect that focal advanced loss creates detectable sector-VF correspondence, while mild diffuse loss spreads signal across sectors.",
+    "paper_statement": "GCL sectoral specificity was absent in the full cohort (Δρ=+0.020, 2/6 diagonal rows maximal). Stratified analysis excluded floor effect (severe Δρ=+0.091 > mild Δρ=+0.042) and insufficient power (comparable CI widths to RNFL). GCL average thickness is the most efficient GCL predictor of VF sensitivity."
+  },
+  "revision_2026_07_05": {
+    "trigger": "재분석: 분산 보정 적용 후 경증 Δ -0.017→+0.030으로 이동. 경증 GCL ρ=0.104 확인(range restriction)",
+    "retracted_claim": "경증 Δ=+0.042 → 중증 Δ=+0.091의 '중증도 의존적 GCL 섹터 특이성' 강한 결론 철회",
+    "replacement_conclusion": {
+      "severity_dependent_verdict": "WEAK/UNCERTAIN — 분산 보정 후 중증도 의존성 간극 절반으로 축소",
+      "mild_stratum": "경증 Δ 원래값(+0.042)은 VF ceiling(CV=3.9%) + GCL range restriction 아티팩트가 대부분. 분산 보정 후 Δ≈+0.030으로 이동. 해석 주의.",
+      "severe_stratum": "중증 Δ=+0.091은 충분한 VF 분산 내에서 산출됨 — 유효",
+      "revised_statement": "GCL 섹터 특이성 중증도 의존성은 불확실. 경증에서의 낮은 특이성은 주로 range restriction 아티팩트. 중증에서 Δ=+0.091은 해부학적 특이성의 약한 신호를 시사하나, 전체 Δ=+0.020(매우 작음)은 GCL 구조적 비특이성의 주된 결론으로 유지.",
+      "floor_effect_verdict_unchanged": "Floor effect 배제 결론(REJECTED)은 유지 — 분산 보정 후에도 severe > mild"
+    }
+  }
+}

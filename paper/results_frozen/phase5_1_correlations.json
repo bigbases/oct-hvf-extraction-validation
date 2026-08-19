@@ -1,0 +1,526 @@
+{
+  "generated": "2026-08-03",
+  "kcc_reference": 0.734,
+  "design": {
+    "n_total": 187,
+    "n_od": 95,
+    "n_os": 92,
+    "bilateral_patients": 84,
+    "gcl_note": "OD행→avg_gcl_od, OS행→avg_gcl_os (eye-specific)",
+    "rnfl_note": "rnfl_quad_mean = mean(q_s, q_t, q_i, q_n) 4개 사분면, 수동검수본 q_i 복원",
+    "ci_method": "Fisher z 변환 95% CI",
+    "lme_method": "random intercept per patient, REML, Z-standardized beta",
+    "unilateral_patients": 19
+  },
+  "correlations": {
+    "gcl_avg": {
+      "OD": {
+        "label": "avg_gcl vs vf_mean (OD-only)",
+        "n": 94,
+        "normality": {
+          "shapiro_x_p": 0.0001,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.439,
+          "p": 0.0,
+          "ci": [
+            0.2595,
+            0.5892
+          ]
+        },
+        "spearman": {
+          "rho": 0.4408,
+          "p": 0.0,
+          "ci": [
+            0.2615,
+            0.5906
+          ]
+        }
+      },
+      "OS": {
+        "label": "avg_gcl vs vf_mean (OS-only)",
+        "n": 91,
+        "normality": {
+          "shapiro_x_p": 0.0005,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.61,
+          "p": 0.0,
+          "ci": [
+            0.462,
+            0.7248
+          ]
+        },
+        "spearman": {
+          "rho": 0.5764,
+          "p": 0.0,
+          "ci": [
+            0.4203,
+            0.6993
+          ]
+        }
+      },
+      "all_naive": {
+        "label": "avg_gcl vs vf_mean (all 276 naive)",
+        "n": 185,
+        "normality": {
+          "shapiro_x_p": 0.0,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.5295,
+          "p": 0.0,
+          "ci": [
+            0.4171,
+            0.626
+          ]
+        },
+        "spearman": {
+          "rho": 0.5094,
+          "p": 0.0,
+          "ci": [
+            0.3941,
+            0.609
+          ]
+        }
+      },
+      "all_lme": {
+        "label": "avg_gcl vs vf_mean (all 276 LME)",
+        "n": 185,
+        "normality": {
+          "shapiro_x_p": 0.0,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.5295,
+          "p": 0.0,
+          "ci": [
+            0.4171,
+            0.626
+          ]
+        },
+        "spearman": {
+          "rho": 0.5094,
+          "p": 0.0,
+          "ci": [
+            0.3941,
+            0.609
+          ]
+        },
+        "lme": {
+          "beta": 0.5723,
+          "se": 0.0668,
+          "p": 0.0,
+          "ci": [
+            0.4413,
+            0.7033
+          ],
+          "note": "random intercept per patient (REML)"
+        }
+      }
+    },
+    "gcl_min": {
+      "OD": {
+        "label": "min_gcl vs vf_mean (OD-only)",
+        "n": 94,
+        "normality": {
+          "shapiro_x_p": 0.0,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.421,
+          "p": 0.0,
+          "ci": [
+            0.2387,
+            0.5746
+          ]
+        },
+        "spearman": {
+          "rho": 0.4939,
+          "p": 0.0,
+          "ci": [
+            0.3236,
+            0.6331
+          ]
+        }
+      },
+      "OS": {
+        "label": "min_gcl vs vf_mean (OS-only)",
+        "n": 91,
+        "normality": {
+          "shapiro_x_p": 0.0015,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.6399,
+          "p": 0.0,
+          "ci": [
+            0.4998,
+            0.7474
+          ]
+        },
+        "spearman": {
+          "rho": 0.6645,
+          "p": 0.0,
+          "ci": [
+            0.5313,
+            0.7657
+          ]
+        }
+      },
+      "all_naive": {
+        "label": "min_gcl vs vf_mean (all 276 naive)",
+        "n": 185,
+        "normality": {
+          "shapiro_x_p": 0.0,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.5324,
+          "p": 0.0,
+          "ci": [
+            0.4204,
+            0.6284
+          ]
+        },
+        "spearman": {
+          "rho": 0.5764,
+          "p": 0.0,
+          "ci": [
+            0.4713,
+            0.6653
+          ]
+        }
+      },
+      "all_lme": {
+        "label": "min_gcl vs vf_mean (all 276 LME)",
+        "n": 185,
+        "normality": {
+          "shapiro_x_p": 0.0,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.5324,
+          "p": 0.0,
+          "ci": [
+            0.4204,
+            0.6284
+          ]
+        },
+        "spearman": {
+          "rho": 0.5764,
+          "p": 0.0,
+          "ci": [
+            0.4713,
+            0.6653
+          ]
+        },
+        "lme": {
+          "beta": 0.5362,
+          "se": 0.0624,
+          "p": 0.0,
+          "ci": [
+            0.4139,
+            0.6585
+          ],
+          "note": "random intercept per patient (REML)"
+        }
+      }
+    },
+    "rnfl_quad_mean": {
+      "OD": {
+        "label": "rnfl_quad_mean vs vf_mean (OD-only)",
+        "n": 95,
+        "normality": {
+          "shapiro_x_p": 0.0973,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.4343,
+          "p": 0.0,
+          "ci": [
+            0.255,
+            0.5846
+          ]
+        },
+        "spearman": {
+          "rho": 0.4039,
+          "p": 0.0,
+          "ci": [
+            0.2202,
+            0.5598
+          ]
+        }
+      },
+      "OS": {
+        "label": "rnfl_quad_mean vs vf_mean (OS-only)",
+        "n": 92,
+        "normality": {
+          "shapiro_x_p": 0.3942,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.5405,
+          "p": 0.0,
+          "ci": [
+            0.3774,
+            0.671
+          ]
+        },
+        "spearman": {
+          "rho": 0.5818,
+          "p": 0.0,
+          "ci": [
+            0.428,
+            0.7029
+          ]
+        }
+      },
+      "all_naive": {
+        "label": "rnfl_quad_mean vs vf_mean (all 276 naive)",
+        "n": 187,
+        "normality": {
+          "shapiro_x_p": 0.0496,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.4972,
+          "p": 0.0,
+          "ci": [
+            0.3809,
+            0.598
+          ]
+        },
+        "spearman": {
+          "rho": 0.5018,
+          "p": 0.0,
+          "ci": [
+            0.3861,
+            0.6019
+          ]
+        }
+      },
+      "all_lme": {
+        "label": "rnfl_quad_mean vs vf_mean (all 276 LME)",
+        "n": 187,
+        "normality": {
+          "shapiro_x_p": 0.0496,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.4972,
+          "p": 0.0,
+          "ci": [
+            0.3809,
+            0.598
+          ]
+        },
+        "spearman": {
+          "rho": 0.5018,
+          "p": 0.0,
+          "ci": [
+            0.3861,
+            0.6019
+          ]
+        },
+        "lme": {
+          "beta": 0.5463,
+          "se": 0.0702,
+          "p": 0.0,
+          "ci": [
+            0.4087,
+            0.684
+          ],
+          "note": "random intercept per patient (REML)"
+        }
+      }
+    },
+    "rnfl_s": {
+      "all_naive": {
+        "label": "rnfl_q_s vs vf_mean (all 276 naive)",
+        "n": 186,
+        "normality": {
+          "shapiro_x_p": 0.0359,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.4808,
+          "p": 0.0,
+          "ci": [
+            0.362,
+            0.5843
+          ]
+        },
+        "spearman": {
+          "rho": 0.4651,
+          "p": 0.0,
+          "ci": [
+            0.3442,
+            0.5708
+          ]
+        }
+      }
+    },
+    "rnfl_t": {
+      "all_naive": {
+        "label": "rnfl_q_t vs vf_mean (all 276 naive)",
+        "n": 187,
+        "normality": {
+          "shapiro_x_p": 0.0001,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.1279,
+          "p": 0.0811,
+          "ci": [
+            -0.0159,
+            0.2665
+          ]
+        },
+        "spearman": {
+          "rho": 0.149,
+          "p": 0.0418,
+          "ci": [
+            0.0056,
+            0.2864
+          ]
+        }
+      }
+    },
+    "rnfl_i": {
+      "all_naive": {
+        "label": "rnfl_q_i vs vf_mean (all 276 naive)",
+        "n": 185,
+        "normality": {
+          "shapiro_x_p": 0.0214,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.54,
+          "p": 0.0,
+          "ci": [
+            0.4292,
+            0.6348
+          ]
+        },
+        "spearman": {
+          "rho": 0.5321,
+          "p": 0.0,
+          "ci": [
+            0.4201,
+            0.6282
+          ]
+        }
+      }
+    },
+    "rnfl_n": {
+      "all_naive": {
+        "label": "rnfl_q_n vs vf_mean (all 276 naive)",
+        "n": 187,
+        "normality": {
+          "shapiro_x_p": 0.0894,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.2746,
+          "p": 0.0001,
+          "ci": [
+            0.1365,
+            0.4023
+          ]
+        },
+        "spearman": {
+          "rho": 0.2886,
+          "p": 0.0001,
+          "ci": [
+            0.1514,
+            0.4149
+          ]
+        }
+      }
+    },
+    "rnfl_ch_mean": {
+      "all_naive": {
+        "label": "rnfl_ch_mean vs vf_mean (all 276 naive)",
+        "n": 187,
+        "normality": {
+          "shapiro_x_p": 0.0513,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.4981,
+          "p": 0.0,
+          "ci": [
+            0.382,
+            0.5988
+          ]
+        },
+        "spearman": {
+          "rho": 0.5021,
+          "p": 0.0,
+          "ci": [
+            0.3864,
+            0.6022
+          ]
+        }
+      },
+      "all_lme": {
+        "label": "rnfl_ch_mean vs vf_mean (all 276 LME)",
+        "n": 187,
+        "normality": {
+          "shapiro_x_p": 0.0513,
+          "shapiro_y_p": 0.0,
+          "note": "non-normal → Spearman primary"
+        },
+        "pearson": {
+          "r": 0.4981,
+          "p": 0.0,
+          "ci": [
+            0.382,
+            0.5988
+          ]
+        },
+        "spearman": {
+          "rho": 0.5021,
+          "p": 0.0,
+          "ci": [
+            0.3864,
+            0.6022
+          ]
+        },
+        "lme": {
+          "beta": 0.5455,
+          "se": 0.0698,
+          "p": 0.0,
+          "ci": [
+            0.4087,
+            0.6823
+          ],
+          "note": "random intercept per patient (REML)"
+        }
+      }
+    }
+  },
+  "input_sha256": {
+    "analysis_master": "ad953738e71a10bc5651ff32b4b39230e2f2f8402b4b3df35c4c14c2b0794738"
+  }
+}

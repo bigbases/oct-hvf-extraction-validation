@@ -1,0 +1,20 @@
+{
+  "generated": "2026-07-04",
+  "source": "data/sfa_thresholds_corrected.csv",
+  "output": "data/vf_results.csv",
+  "sha256": "d272435b3022c10c296d27f552e67f56f57d695aa663bc49d3a69292777c1a4c",
+  "n_eyes": 276,
+  "n_patients": 144,
+  "vf_mean_definition": {
+    "blind_spot_excluded": [
+      "p35",
+      "p29"
+    ],
+    "blind_spot_note": "p35=OD 맹점, p29=OS 맹점. 모든 눈에서 양쪽 다 제외 → 분모 52 고정.",
+    "absolute_scotoma": "-1 -> 0.0 dB (포함)",
+    "denominator": 52,
+    "valid_range": "[0, 40] dB"
+  },
+  "n_absolute_scotoma": "p29/p35 제외 후 52점 중 원래 -1이었던 수. 중증도 지표.",
+  "column_change": "p01..p54 -> p1..p54 (zero-padding 제거)"
+}

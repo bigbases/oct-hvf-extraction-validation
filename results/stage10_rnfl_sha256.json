@@ -1,0 +1,19 @@
+{
+  "key": "stage10_rnfl_sha256",
+  "value": "2571d9974425ed650c83b2c6cb83785529128cea976956b6d42ed6b32c4df8f9",
+  "script": "scripts/stage_10_extract.py",
+  "inputs": [
+    {
+      "id": "kcc/dataset_final.csv",
+      "sha256": "c98a3df284c052e048a94e5350183840877865dabf032213aa280020b79ee6e0",
+      "bytes": 129813
+    }
+  ],
+  "created_utc": "2026-07-23T04:43:10+00:00",
+  "git_commit": "2ff3ca4127eafb0008a00555b697338a0b1ce91b",
+  "python": "3.14.3",
+  "extra": {
+    "rows": 340,
+    "output_file": "rnfl_detail_raw.csv"
+  }
+}

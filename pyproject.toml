@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hvf"
+version = "0.1.0"
+description = "OCR extraction and analysis pipeline for paired OCT and Humphrey visual field reports"
+requires-python = ">=3.10"
+# 런타임 의존은 requirements*.txt 에서 정확히 pin (재현용). 여기선 비워둠.
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

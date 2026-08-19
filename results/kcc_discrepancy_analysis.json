@@ -1,0 +1,73 @@
+{
+  "generated": "2026-07-05",
+  "analysis": "KCC r=0.734 vs our rho=0.42 discrepancy investigation",
+  "conclusion": "KCC r=0.734 was an OS-eye-only analysis (n=42), not bilateral",
+  "kcc_reproduction": {
+    "source": "kcc/gca_vf_matched.csv",
+    "OD_only_n56": {
+      "pearson": 0.4171,
+      "spearman": 0.457
+    },
+    "OS_only_n42": {
+      "pearson": 0.7344,
+      "ci_95": [
+        0.5541,
+        0.8488
+      ],
+      "spearman": 0.6975
+    },
+    "both_n98": {
+      "pearson": 0.543,
+      "spearman": 0.5391
+    },
+    "note": "r=0.734 reproduces exactly for OS-only (n=42). KCC reported this as if bilateral."
+  },
+  "our_results": {
+    "OD_only_n132": {
+      "pearson": 0.3966,
+      "spearman": 0.4384
+    },
+    "OS_only_n128": {
+      "pearson": 0.3741,
+      "spearman": 0.4032
+    },
+    "both_n260": {
+      "pearson": 0.3938,
+      "spearman": 0.4234,
+      "note": "LME beta=0.405 (results/phase5_1_correlations.json)"
+    }
+  },
+  "head_to_head_same_51_OS_eyes": {
+    "n_overlap_OS_eyes": 51,
+    "kcc_data_pearson": 0.722,
+    "our_data_pearson": 0.355,
+    "gap": 0.367,
+    "explanation": "Same patients, same VF dates (96%), but different GCL extraction pipeline"
+  },
+  "gcl_pipeline_difference": {
+    "MAE_um": 5.28,
+    "bias_kcc_minus_ours_um": -3.17,
+    "SD_um": 10.12,
+    "abs_diff_gt5um": "23/94 pairs (24.5%)",
+    "note": "KCC used older OCR pipeline; ours used 3-stage OCR fix (avg_gcl_os None 44%->8%)"
+  },
+  "ms_definition_difference": {
+    "bias_kcc_minus_ours_dB": 5.93,
+    "date_mismatch_explanation": "ruled out: 103/107 eyes (96%) same VF date",
+    "scotoma_treatment": {
+      "kcc": "likely excludes <0 points from mean (machine-printed MS or OCR of printed value)",
+      "ours": "treats <0 as 0 dB, fixed denominator 52 (correct for glaucoma severity)"
+    },
+    "scotoma_0_eyes_bias": 4.11,
+    "scotoma_gt0_eyes_bias": 7.0,
+    "ms_definition_effect_on_r": 0.0065,
+    "note": "MS definition difference does NOT materially affect correlation (delta_r<0.01)"
+  },
+  "severity_bias_hypothesis": {
+    "verdict": "REJECTED",
+    "KCC_MS_mean": 26.4,
+    "ours_MS_mean": 22.2,
+    "note": "Our cohort more severe (wider range). Should inflate, not deflate, our r."
+  },
+  "paper_narrative": "The previously reported r=0.734 was computed from OS eyes only (n=42), not bilaterally. Our analysis uses all 276 eyes (bilateral LME with random patient intercept). On the identical 51 overlapping OS eyes, KCC GCL values yield r=0.722 vs our reextracted GCL r=0.355, indicating that the GCL OCR pipeline difference (MAE=5.3 um) also contributes substantially. Our bilateral approach with standardized GCL extraction provides a more rigorous estimate (rho=0.42-0.52)."
+}
